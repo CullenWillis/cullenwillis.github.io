@@ -26,7 +26,9 @@ function intializeLanding(){
     backgroundSetup();
     sceneSetup();
     lightSetup();
+    addTrial();
     animate();
+    
 }
 
 // loop
@@ -72,6 +74,31 @@ function planetCreation(creator){
         }
     }
 }
+function addTrial(){
+    // Make highly-transparent plane
+    var fadeMaterial = new THREE.MeshBasicMaterial({
+        color: 0xbb450f,
+        transparent: true,
+        opacity: 0.01
+    });
+    var fadePlane = new THREE.PlaneBufferGeometry(1, 1);
+    var fadeMesh = new THREE.Mesh(fadePlane, fadeMaterial);
+
+    // Create Object3D to hold camera and transparent plane
+    var camGroup = new THREE.Object3D();
+    var camera = new THREE.PerspectiveCamera();
+    camGroup.add(camera);
+    camGroup.add(fadeMesh);
+
+    // Put plane in front of camera
+    fadeMesh.position.z = 20;
+
+    // Make plane render before particles
+    fadeMesh.renderOrder = -1;
+
+    // Add camGroup to scene
+    scene.add(camGroup);
+}
 function orbitCreation(){
     for (var key in solarSystem) {
         if (solarSystem.hasOwnProperty(key)) {
@@ -80,6 +107,7 @@ function orbitCreation(){
             
             var temp = new THREE.Object3D();
             temp.add(planet);
+            temp.rotation.z = Math.random() * (360 - 0) + 0;
             solarSystem.orbit.add(temp);
             pivots[key] = temp;
         }
@@ -115,12 +143,14 @@ function sceneSetup(){
 }
 function backgroundSetup(){
     for (var i = 0; i < 100; i++) {
-        var lumiereS = new THREE.MeshPhongMaterial({
+        var material = new THREE.MeshPhongMaterial({
             emissive: '#fff'
         });
+        var size = Math.random() * (1 - 0.25) + 0.25;
+        var distance = Math.random() * 600 - 300;
 
-        var star = new THREE.Mesh(new THREE.SphereGeometry(Math.random() * .75, 20, 20), lumiereS);
-        star.position.set(Math.random() * 600 - 300, Math.random() * 600 - 300, Math.random() * 600 - 300);
+        var star = new THREE.Mesh(new THREE.SphereGeometry(size, 10, 10), material);
+        star.position.set(distance, distance, distance);
 
         scene.add(star);
         stars.push(star);
