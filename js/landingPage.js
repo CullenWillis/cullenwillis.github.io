@@ -7,7 +7,7 @@ var pivots = {};
 var options = {
     mercury:    {"size": 1, "color": 0x9a8579, "speed": 0.0478, "distance": 15},
     venus:      {"size": 2, "color": 0xf7941e, "speed": 0.0350, "distance": 15},
-    earth:      {"size": 2, "color": 0x85dff9, "speed": 0.0298, "distance": 15},
+    earth:      {"size": 2, "color": 0x8ec43e, "speed": 0.0298, "distance": 15},
     mars:       {"size": 1.5, "color": 0xbb450f, "speed": 0.0240, "distance": 15},
     jupiter:    {"size": 3, "color": 0xf5b36c, "speed": 0.0130, "distance": 20},
     saturn:     {"size": 2.5, "color": 0xf1d36c, "speed": 0.0097, "distance": 20},
