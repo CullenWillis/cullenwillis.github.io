@@ -1,7 +1,7 @@
-$(document).ready(function() {
+/*$(document).ready(function() {
   jq = $.noConflict(true);
   du_checkParentSize();
-
+  
   
 }); 
 
@@ -18,4 +18,9 @@ var du_checkParentSize = function(){
       b.addClass("du-mobile");
 
   }
-};
+};*/
+start();
+
+function start(){
+  intializeLanding();
+}
