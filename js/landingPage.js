@@ -150,7 +150,7 @@ function setup(){
 
 function orbitalPan(){
     controller = new THREE.OrbitControls(camera);
-
+    controller.enableZoom = false;
     controller.maxDistance = 300;
     controller.minDistance = 30;
     controller.autoRotate = true;
@@ -158,8 +158,10 @@ function orbitalPan(){
     controller.enableDamping = true;
     controller.minPolarAngle = 0.8;
 	controller.maxPolarAngle = 2.4;
-	controller.dampingFactor = 0.07;
-    controller.rotateSpeed = 0.07;
+    controller.dampingFactor = 0.07;
+    controller.rotateSpeed = 0.01;
+    
+    controller.enableKeys = false;
 }
 
 function sceneSetup(){
