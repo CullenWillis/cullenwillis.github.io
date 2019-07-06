@@ -18,17 +18,17 @@ var options = {
 var controller = null;
 
 // functional Vars
-var cameraPosition = 200;
+var cameraPosition = 150;
 
 function intializeLanding(){
     window.addEventListener('resize', onWindowResize, false);
 
     setup();
-    backgroundSetup();
+    starCreation();
     sceneSetup();
     lightSetup();
     addTrial();
-    mouseController();
+    orbitalPan();
 
     animate();
     
@@ -60,6 +60,7 @@ function starRandomizer(){
     for (var i = 0, il = stars.length; i < il; i++) {
         var star = stars[i];
         star.position.x = 400 * Math.sin(timer + i);
+        star.position.z = 400 * Math.sin(timer + i * 1.1);
     }
 }
 
@@ -116,11 +117,27 @@ function orbitCreation(){
         }
     }
 }
+function starCreation(){
+    for (var i = 0; i < 100; i++) {
+        var material = new THREE.MeshPhongMaterial({
+            emissive: '#fff'
+        });
+        var size = Math.random() * (0.75 - 0.25) + 0.25;
+
+        var star = new THREE.Mesh(new THREE.SphereGeometry(size, 10, 10), material);
+        star.position.set(Math.random() * 600 - 300, Math.random() * 600 - 300, Math.random() * 600 - 300);
+
+        scene.add(star);
+        stars.push(star);
+    }
+}
 
 function setup(){
     scene = new THREE.Scene();
     camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
     camera.position.z = cameraPosition;
+    camera.up.set( 0, 0, 1 );
+
     renderer = new THREE.WebGLRenderer({
         antialias: true
     });
@@ -130,18 +147,19 @@ function setup(){
     renderer.setSize(window.innerWidth, 750);
     document.getElementsByClassName("header")[0].appendChild(renderer.domElement);
 }
-function mouseController(){
-    controller = new THREE.OrbitControls(camera, renderer.domElement);
+
+function orbitalPan(){
+    controller = new THREE.OrbitControls(camera);
+
     controller.maxDistance = 300;
     controller.minDistance = 30;
-}
-function onMouseDown(event) {
-    raycaster = new THREE.Raycaster();
-    mouse = new THREE.Vector2();
-    mouse.x = (event.clientX / renderer.domElement.width) * 2 - 1;
-    mouse.y = -(event.clientY / renderer.domElement.height) * 2 + 1;
-    setFromCamera(raycaster, mouse, camera);
-    //var intersects = raycaster.intersectObjects(objects);
+    controller.autoRotate = true;
+    controller.autoRotateSpeed = 0.1;
+    controller.enableDamping = true;
+    controller.minPolarAngle = 0.8;
+	controller.maxPolarAngle = 2.4;
+	controller.dampingFactor = 0.07;
+    controller.rotateSpeed = 0.07;
 }
 
 function sceneSetup(){
@@ -158,20 +176,7 @@ function sceneSetup(){
     scene.add(solarSystem.orbit);
     scene.add(solarSystem.sun);
 }
-function backgroundSetup(){
-    for (var i = 0; i < 100; i++) {
-        var material = new THREE.MeshPhongMaterial({
-            emissive: '#fff'
-        });
-        var size = Math.random() * (0.6 - 0.25) + 0.25;
 
-        var star = new THREE.Mesh(new THREE.SphereGeometry(size, 10, 10), material);
-        star.position.set(Math.random() * 600 - 300, Math.random() * 600 - 300, Math.random() * 500 - 450);
-
-        scene.add(star);
-        stars.push(star);
-    }
-}
 function lightSetup(){
     var light = new THREE.DirectionalLight(0x4f4f4f);
     light.position.set(4, 4, 4);
@@ -187,7 +192,7 @@ function onWindowResize(){
 }
 
 class planetCreator{
-    varructor(){   }
+    constructor(){   }
 
     getSun(size){
         this.shape = new THREE.IcosahedronGeometry(size, 1);
