@@ -45,7 +45,6 @@ function animate(){
             var speed = options[key].speed;
 
             pivot.rotation.z += speed / 2;
-            solarSystem[key].rotation.x += 0.01;
         }
     }
 
@@ -56,7 +55,7 @@ function starRandomizer(){
     for (var i = 0, il = stars.length; i < il; i++) {
         var star = stars[i];
         star.position.x = 400 * Math.sin(timer + i);
-        star.position.z = 400 * Math.sin(timer + i * 1.1);
+        star.position.z = 1;//400 * Math.sin(timer + i * 1.1);
     }
 }
 
@@ -147,10 +146,9 @@ function backgroundSetup(){
             emissive: '#fff'
         });
         var size = Math.random() * (1 - 0.25) + 0.25;
-        var distance = Math.random() * 600 - 300;
 
         var star = new THREE.Mesh(new THREE.SphereGeometry(size, 10, 10), material);
-        star.position.set(distance, distance, distance);
+        star.position.set(Math.random() * 600 - 300, Math.random() * 600 - 300, Math.random() * 600 - 300);
 
         scene.add(star);
         stars.push(star);
