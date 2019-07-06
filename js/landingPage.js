@@ -15,6 +15,7 @@ var options = {
     neptune:    {"size": 2.5, "color": 0x85dff9, "speed": 0.0054, "distance": 20},
     pluto:      {"size": 1, "color": 0x726557, "speed": 0.0047, "distance": 20}
 }
+var controller = null;
 
 // functional Vars
 var cameraPosition = 200;
@@ -27,6 +28,8 @@ function intializeLanding(){
     sceneSetup();
     lightSetup();
     addTrial();
+    mouseController();
+
     animate();
     
 }
@@ -45,9 +48,11 @@ function animate(){
             var speed = options[key].speed;
 
             pivot.rotation.z += speed / 2;
+            solarSystem[key].rotation.x += 0.02;
         }
     }
 
+    controller.update();
     renderer.render(scene, camera);
 }
 function starRandomizer(){
@@ -55,7 +60,6 @@ function starRandomizer(){
     for (var i = 0, il = stars.length; i < il; i++) {
         var star = stars[i];
         star.position.x = 400 * Math.sin(timer + i);
-        star.position.z = 1;//400 * Math.sin(timer + i * 1.1);
     }
 }
 
@@ -126,6 +130,20 @@ function setup(){
     renderer.setSize(window.innerWidth, 750);
     document.getElementsByClassName("header")[0].appendChild(renderer.domElement);
 }
+function mouseController(){
+    controller = new THREE.OrbitControls(camera, renderer.domElement);
+    controller.maxDistance = 300;
+    controller.minDistance = 30;
+}
+function onMouseDown(event) {
+    raycaster = new THREE.Raycaster();
+    mouse = new THREE.Vector2();
+    mouse.x = (event.clientX / renderer.domElement.width) * 2 - 1;
+    mouse.y = -(event.clientY / renderer.domElement.height) * 2 + 1;
+    setFromCamera(raycaster, mouse, camera);
+    //var intersects = raycaster.intersectObjects(objects);
+}
+
 function sceneSetup(){
     var creator = new planetCreator();
 
@@ -145,10 +163,10 @@ function backgroundSetup(){
         var material = new THREE.MeshPhongMaterial({
             emissive: '#fff'
         });
-        var size = Math.random() * (1 - 0.25) + 0.25;
+        var size = Math.random() * (0.6 - 0.25) + 0.25;
 
         var star = new THREE.Mesh(new THREE.SphereGeometry(size, 10, 10), material);
-        star.position.set(Math.random() * 600 - 300, Math.random() * 600 - 300, Math.random() * 600 - 300);
+        star.position.set(Math.random() * 600 - 300, Math.random() * 600 - 300, Math.random() * 500 - 450);
 
         scene.add(star);
         stars.push(star);
