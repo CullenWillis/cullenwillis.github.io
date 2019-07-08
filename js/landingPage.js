@@ -19,6 +19,7 @@ var controller = null;
 
 // functional Vars
 var cameraPosition = 150;
+var renderHeight = 700;
 
 function intializeLanding(){
     window.addEventListener('resize', onWindowResize, false);
@@ -144,7 +145,7 @@ function setup(){
     renderer.sortObjects = false;
     renderer.setClearColor(0x131A3D, 1);
 
-    renderer.setSize(window.innerWidth, 750);
+    renderer.setSize(window.innerWidth, renderHeight);
     document.getElementsByClassName("header")[0].appendChild(renderer.domElement);
 }
 
@@ -190,7 +191,7 @@ function lightSetup(){
 function onWindowResize(){
 	camera.aspect = window.innerWidth / window.innerHeight;
 	camera.updateProjectionMatrix();
-	renderer.setSize(window.innerWidth, 750);
+	renderer.setSize(window.innerWidth, renderHeight);
 }
 
 class planetCreator{

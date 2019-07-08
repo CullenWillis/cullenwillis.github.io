@@ -1,26 +1,55 @@
-/*$(document).ready(function() {
-  jq = $.noConflict(true);
-  du_checkParentSize();
-  
-  
+$(document).ready(function() {
+    jq = $.noConflict(true);
+    //du_checkParentSize();
+    runSetup();
 }); 
-
+/*
 $(window).resize(function() {
   du_checkParentSize();
 }); 
+*/
+
+var template = null;
+var tools = ["HTML5", "CSS3", "JavaScript", "Jquery", "PHP", "MySQL", "Java", "Photoshop"];
+function runSetup(){
+    scrollAnimation();
+    populateTools();
+}
+
+function scrollAnimation(){
+    jq(".header .container").css("display", "flex").hide().fadeIn("slow", function(){
+        jq(".header .divider div").slideDown("slow");
+    });
+}
+function populateTools(){
+  template = jq(`<li><img/><div class="text"></div></li>`);
+  
+  for(var i = 0; i < tools.length; i++){
+    var clone = template.clone();
+    var element = tools[i];
+
+    var filePath = "imgs/svgs/icon-" + element.toLowerCase() + ".svg";
+
+    jq("img", clone)
+      .attr("src", filePath)
+      .attr("alt", element);
+    jq(".text", clone).text(element);
+
+    jq(".about ul").append(clone);
+  }
+}
 
 var du_checkParentSize = function(){
-  var b = jq("#wrapper");
+    var b = jq("#wrapper");
 
-  if (b.parent().width() > 650) {
-      b.removeClass("du-mobile");
-  } else {
-      b.addClass("du-mobile");
+    if (b.parent().width() > 650) {
+        b.removeClass("du-mobile");
+    } else {
+        b.addClass("du-mobile");
+    }
+};
 
-  }
-};*/
-start();
-
-function start(){
-  intializeLanding();
+startLandingPage();
+function startLandingPage(){
+    intializeLanding();
 }
