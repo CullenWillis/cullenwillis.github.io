@@ -10,7 +10,7 @@ $(window).resize(function() {
 */
 
 var template = null;
-var tools = ["HTML5", "CSS3", "JavaScript", "Jquery", "PHP", "MySQL", "Java", "CSharp", "Python", "Spark", "Scala", "Hadoop", "TensorFlow", "GoogleAnalytics", "Git", "GitHub", "Photoshop", "Linux", "Windows"];
+var tools = ["HTML5", "CSS3", "JavaScript", "Jquery", "PHP", "MySQL", "Java", "CSharp", "Python", "Spark", "Scala", "Hadoop", "TensorFlow", "GoogleAnalytics", "Git", "GitHub", "Photoshop", "Illustrator", "Linux", "Windows"];
 
 function runSetup() {
   scrollAnimation();

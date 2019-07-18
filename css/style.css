@@ -131,7 +131,7 @@ body {
 }
 
 .about .wrapper {
-    max-width: 950px;
+    max-width: 1000px;
     width: 100%;
     margin: 0 auto;
     display: flex;
@@ -144,8 +144,16 @@ body {
     width: 400px;
 }
 
+.about .column.tools {
+    width: 480px;
+}
+
 .about .text {
     font-family: "Avenir Book", Helvetica, Arial, sans-serif;
+}
+
+.about li .text {
+    font-size: 15px;
 }
 
 .about .breif {}
@@ -189,7 +197,7 @@ body {
 .about .tools li {
     width: calc(100% / 8);
     max-width: 100px;
-    padding: 20px;
+    padding: 20px 30px;
 
     display: flex;
     flex-direction: column;
