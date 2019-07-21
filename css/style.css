@@ -131,7 +131,7 @@ body {
 }
 
 .about .wrapper {
-    max-width: 1000px;
+    max-width: 1100px;
     width: 100%;
     margin: 0 auto;
     display: flex;
@@ -141,10 +141,6 @@ body {
 
 .about .column {
     height: 100%;
-    width: 400px;
-}
-
-.about .column.tools {
     width: 480px;
 }
 
