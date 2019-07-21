@@ -213,6 +213,221 @@ body {
     padding-bottom: 10px;
 }
 
+.progress {
+    background: #ececee;
+    width: 100%;
+    height: 100%;
+    padding: 75px 0;
+
+    background: url("../imgs/background/2k_stars.jpg") #000;
+
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.progress .container {
+    max-width: 1000px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.progress .text-heading {
+    color: #fff;
+}
+
+.progress .steps-container {
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+}
+
+.progress .steps-container::before {
+    position: absolute;
+    content: "";
+    left: 49.9%;
+    height: 600em;
+    z-index: 1;
+    width: 1px;
+    background: RGBA(255, 255, 255, .5);
+    display: table;
+}
+
+.group {
+    display: block;
+    position: relative;
+    height: 100%;
+    width: 100%;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.clearfix {
+    overflow: auto;
+}
+
+.clearfix::before {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+
+.progress .steps-container h4 {
+    font-family: "Avenir light", Helvetica, Arial, sans-serif;
+    text-align: left;
+    margin-top: 0;
+    font-weight: bold;
+    font-size: 18px;
+    color: #fff;
+}
+
+.progress .steps-container .desc-box .sub-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.progress .steps-container .sub-title,
+.progress .steps-container p {
+    font-family: "Avenir", sans-serif;
+    text-align: left;
+    display: block;
+    margin: 0;
+    color: #cccccc
+}
+
+.progress .steps-container .date-wrapper {
+    position: relative;
+    width: 45%;
+    top: 30px;
+    float: left;
+}
+
+.progress .steps-container .date {
+    display: inline-block;
+    padding: 8px 25px;
+    font-size: 18px;
+    float: right;
+    color: #fff;
+    /*#FFD500;*/
+    font-weight: bold;
+
+    font-family: "Avenir", sans-serif;
+    letter-spacing: 1px;
+}
+
+.progress .steps-container .point-circle {
+    width: 50px;
+    height: 50px;
+    display: block;
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 23px;
+    border-radius: 100%;
+
+    background: url("../imgs/icons/sprite.png") no-repeat scroll top left #000;
+    background-size: auto 210%;
+    background-position: 0 0;
+    z-index: 1;
+
+    -webkit-animation: rotating 15s linear infinite;
+    -moz-animation: rotating 15s linear infinite;
+    -ms-animation: rotating 15s linear infinite;
+    -o-animation: rotating 15s linear infinite;
+    animation: rotating 15s linear infinite;
+}
+
+@-webkit-keyframes rotating {
+    from {
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotating {
+    from {
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    to {
+        -ms-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+.progress .steps-container .position-1 .point-circle {
+    background-position: 0 0;
+}
+
+.progress .steps-container .position-2 .point-circle {
+    background-position: -56px 0;
+}
+
+.progress .steps-container .position-3 .point-circle {
+    background-position: -112px 0;
+}
+
+.progress .steps-container .position-4 .point-circle {
+    background-position: -168px 0;
+}
+
+.progress .steps-container .position-5 .point-circle {
+    background-position: 0px -57px;
+}
+
+
+.progress .steps-container .desc-box {
+    display: block;
+    height: 100%;
+    border-radius: 15px;
+    float: right;
+    width: 40%;
+    padding: 15px 25px 15px 25px;
+    position: relative;
+    letter-spacing: 1px;
+}
+
+.progress .steps-container .group-left .desc-box {
+    float: left;
+}
+
+.progress .steps-container .group-left .date {
+    left: 10%;
+}
+
+.progress .steps-container .group-left .date {
+    float: left;
+}
+
+.progress .steps-container .group-left .date-wrapper {
+    float: right;
+}
+
+.progress .steps-container .group-left h4,
+.progress .steps-container .group-left .sub-title,
+.progress .steps-container .group-left p {
+    text-align: right;
+}
+
 .recent {
     background: #ececee;
     width: 100%;
@@ -310,4 +525,66 @@ body {
     text-align: center;
     font-size: 16px;
     color: #fff;
+}
+
+.footer {
+    background: #a84a69;
+    /* Old browsers */
+    background: -moz-linear-gradient(top right, #a84a69 0%, #e17563 33%, #ffb25b 66%, #f9f871 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top right, #a84a69 0%, #e17563 33%, #ffb25b 66%, #f9f871 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to top right, #a84a69 0%, #e17563 33%, #ffb25b 66%, #f9f871 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a84a69', endColorstr='#f9f871', GradientType=0);
+    /* IE6-9 */
+
+    width: 100%;
+    padding: 35px 0;
+}
+
+.footer .wrapper {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    max-width: 850px;
+}
+
+.footer .copyright {
+    text-align: center;
+    color: #fff;
+    font-family: "Avenir Book", Helvetica, Arial, sans-serif;
+    position: relative;
+}
+
+.footer .social-icons a {
+    display: inline-block;
+    padding: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+.footer .social-icons a::before {
+    border-radius: 25%;
+    opacity: 0.35;
+    content: '';
+    position: absolute;
+    bottom: 10px;
+    right: 10px;
+    width: 110%;
+    height: 50%;
+    -webkit-transform: rotateX(-65deg) rotateY(-15deg) rotateZ(60deg);
+    transform: rotateX(-65deg) rotateY(-15deg) rotateZ(60deg);
+    background-image: -webkit-gradient(linear, right top, left top, from(rgba(0, 0, 0, 0.4)), to(transparent));
+    background-image: linear-gradient(to left, rgba(0, 0, 0, 0.4), transparent);
+    z-index: -1;
+}
+
+.footer .social-icons img {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    overflow: hidden;
 }
