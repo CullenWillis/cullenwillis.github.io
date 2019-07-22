@@ -10,7 +10,14 @@ $(window).resize(function() {
 */
 
 var template = null;
-var tools = ["HTML5", "CSS3", "JavaScript", "Jquery", "PHP", "MySQL", "Java", "CSharp", "Python", "Spark", "Scala", "Hadoop", "TensorFlow", "GoogleAnalytics", "Git", "GitHub", "Photoshop", "Illustrator", "Linux", "Windows"];
+var tools = [
+  "HTML5", "CSS3", "JavaScript", "Jquery",
+  "PHP", "MySQL", "Java", "CSharp",
+  "Python", "Spark", "Scala", "Hadoop",
+  "TensorFlow", "OpenCV", "GoogleAnalytics", "Git",
+  "GitHub", "Photoshop", "Linux",
+  "Windows", "AndroidStudio", "Unity",
+];
 
 function runSetup() {
   scrollAnimation();
@@ -31,7 +38,6 @@ function populateTools() {
     var element = tools[i];
 
     var filePath = "imgs/svgs/icon-" + element.toLowerCase() + ".svg";
-    console.log(filePath);
     jq("img", clone)
       .attr("src", filePath)
       .attr("alt", element);
@@ -51,8 +57,10 @@ var du_checkParentSize = function () {
   }
 };
 
-startLandingPage();
+startSpaceTHREE();
 
-function startLandingPage() {
-  intializeLanding();
-}
+function startSpaceTHREE() {
+  var container = document.getElementById("spaceTHREE");
+  var globe = new DAT.Globe(container);
+  globe.animate();
+};

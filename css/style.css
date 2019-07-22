@@ -13,9 +13,21 @@ body {
 
 .header {
     width: 100%;
-    height: 700px;
+    height: 1000px;
     background: #e8e8ea;
     position: relative;
+}
+
+.header #spaceTHREE {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.header canvas {
+    background: url("../imgs/2k_stars.jpg") no-repeat center center;
+
+    background-attachment: fixed;
 }
 
 .header .wrapper {
@@ -84,15 +96,6 @@ body {
     cursor: pointer;
     width: 50px;
     height: 50px;
-}
-
-.header .border-divider {
-    width: 100%;
-    height: 4px;
-    background: #fff;
-    position: absolute;
-    bottom: -2px;
-    left: 0;
 }
 
 .canvas {
