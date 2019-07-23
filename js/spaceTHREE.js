@@ -297,7 +297,8 @@ DAT.Globe = function (container) {
         moonMesh.rotation.y += .0025;
         earthMesh.rotation.y += .001;
 
-        camera.lookAt(earthMesh.position);
+        var vect = new THREE.Vector3(earthMesh.position.x, earthMesh.position.y, earthMesh.position.z);
+        camera.lookAt(vect);
 
         renderer.render(scene, camera);
     }

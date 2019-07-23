@@ -498,9 +498,9 @@ body {
     position: relative;
     width: 33%;
     height: 100%;
-    overflow: hidden;
     margin-bottom: .5%;
     overflow: hidden;
+    opacity: .5;
 }
 
 .recent img {
@@ -508,37 +508,20 @@ body {
     width: 100%;
 }
 
-.recent .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: block;
-    opacity: 0;
-
-    width: 80%;
-    height: 100%;
-    background: RGBA(0, 0, 0, .75);
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-
-    padding: 0 10%;
-}
-
-.recent li:hover .overlay {
-    cursor: pointer;
+.recent li:hover {
     opacity: 1;
+    cursor: pointer;
+
     animation-name: fadeInOpacity;
     animation-iteration-count: 1;
     animation-timing-function: ease-in;
-    animation-duration: .175s;
+    animation-duration: .1s;
 }
+
 
 @keyframes fadeInOpacity {
     0% {
-        opacity: 0;
+        opacity: .5;
     }
 
     100% {
@@ -565,19 +548,12 @@ body {
 }
 
 .footer {
-    background: #a84a69;
-    /* Old browsers */
-    background: -moz-linear-gradient(top right, #a84a69 0%, #e17563 33%, #ffb25b 66%, #f9f871 100%);
-    /* FF3.6-15 */
-    background: -webkit-linear-gradient(top right, #a84a69 0%, #e17563 33%, #ffb25b 66%, #f9f871 100%);
-    /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to top right, #a84a69 0%, #e17563 33%, #ffb25b 66%, #f9f871 100%);
-    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a84a69', endColorstr='#f9f871', GradientType=0);
-    /* IE6-9 */
+    background: url("../imgs/2k_stars_white.jpg") no-repeat center center;
+
+    background-attachment: fixed;
 
     width: 100%;
-    padding: 35px 0;
+    padding: 15px 0;
 }
 
 .footer .wrapper {
@@ -585,7 +561,7 @@ body {
     display: flex;
     flex-direction: row;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-between;
     max-width: 850px;
 }
 
