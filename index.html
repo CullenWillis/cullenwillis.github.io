@@ -2,103 +2,259 @@
 <html>
 
 <head>
-  <meta charset="UTF-8">
-  <title>title</title>
+    <meta charset="utf-8">
+    <title>Cullen Willis</title>
+    <meta name="author" content="Cullen Willis">
+    <meta name="description" content="Portfolio">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <style>
-    body {
-      padding: 0;
-      margin: 0;
-    }
+    <link href="css/style.css" rel="stylesheet">
+    <link href="css/mobile.css" rel="stylesheet">
 
-    #wrapper {
-      color: red;
-      width: 100%;
-      height: 25px;
-    }
-
-    .shuffle {
-      background: #000;
-      color: #fff;
-      width: 100%;
-      height: 100%;
-      padding: 5px 10px;
-      margin: 0 auto;
-
-      font-size: 22px;
-    }
-  </style>
-
-  <script src="https://code.jquery.com/jquery-3.4.1.min.js"
-    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  <div id="wrapper">
-    <div class="shuffle"></div>
-  </div>
+    <section class="navbar">
 
-  <script>
-    var timerAmount = 4;
-    var tempPlaces = [
-      "OwO", "Hello", "Hi", "Howdy", "UwU"
-    ];
-    $(".shuffle").html(tempPlaces[0]);
-    shuffleTimer = setInterval(function () {
-      var max = tempPlaces.length - 1;
-      timerAmount = timerAmount == 0 ? max : timerAmount - 1;
+    </section>
+    <section class="header">
+        <div id="spaceTHREE"></div>
 
-      shuffleEffect(tempPlaces[timerAmount]);
+        <div class="wrapper">
+            <div class="divider">
+                <div></div>
+            </div>
+            <div class="container">
+                <h1 class="text-heading">Cullen Willis</h1>
+                <div class="text">Software Engineer</div>
+                <div class="description">
+                    <span>Hi</span> I'm Cullen, a Software Engineer currently working in Manchester, England. I'm
+                    passionate
+                    about learning new technologies while working constantly to improve my existing skillset. Below
+                    you'll
+                    find details about tools that I'm familiar with, my most recent projects in the last year, as well
+                    as a
+                    few personal projects.
+                </div>
+                <ul>
+                    <li>
+                        <a href="https://www.linkedin.com/in/cullenwillis/">
+                            <img src="imgs/icons/icon-linkedIn.png" alt="LinkedIn" />
+                        </a>
+                    </li>
+                    <li>
+                        <a href="https://github.com/CullenWillis">
+                            <img src="imgs/icons/icon-github.png" alt="github" />
+                        </a>
+                    </li>
+                    <li>
+                        <a>
+                            <img src="imgs/icons/icon-resume.png" href="" alt="resume" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </section>
+    <section class="about">
+        <h1 class="text-heading">skills</h1>
+        <div class="wrapper">
+            <div class="column bars">
+                <ul>
+                    <li>
+                        <div class="icon-wrapper">
+                            <img src="imgs/svgs/icon-javascript.svg" alt="JavaScript">
+                            <div class="text">JavaScript</div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-amount"></div>
+                        </div>
+                        <div class="text counter">0%</div>
+                    </li>
+                    <li>
+                        <div class="icon-wrapper">
+                            <img src="imgs/svgs/icon-java.svg" alt="Java">
+                            <div class="text">Java</div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-amount"></div>
+                        </div>
+                        <div class="text counter">0%</div>
+                    </li>
+                    <li>
+                        <div class="icon-wrapper">
+                            <img src="imgs/svgs/icon-csharp.svg" alt="CSharp">
+                            <div class="text">C Sharp</div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-amount"></div>
+                        </div>
+                        <div class="text counter">0%</div>
+                    </li>
+                    <li>
+                        <div class="icon-wrapper">
+                            <img src="imgs/svgs/icon-jquery.svg" alt="Jquery">
+                            <div class="text">JQuery</div>
+                        </div>
+                        <div class="progress-bar">
+                            <div class="progress-amount"></div>
+                        </div>
+                        <div class="text counter">0%</div>
+                    </li>
+                </ul>
+            </div>
+            <div class="column tools">
+                <ul></ul>
+            </div>
+        </div>
+    </section>
+    <section class="progress">
+        <div class="container">
+            <h1 class="text-heading">experience</h1>
+            <div class="steps-container">
+                <div class="group clearfix position-1">
+                    <span class="point-circle"></span>
+                    <div class="desc-box">
+                        <span class="date">2018 - Current</span>
+                        <h4>REACH PLC</h4>
+                        <span class="sub-title">Coder within the Data Unit team</span>
+                        <p>
+                            Working within a team containing journalists, designers and fellow coders - As a coder
+                            I provide the nation with an interactive application containing data and design provided by
+                            the team. This helps the public understand the data stated in each story.
+                            <br /> <br />
+                            Contents: HTML/CSS, Javascript, J-Query, Working with API's and Big Data, MySQL, Server
+                            Management 
+                        </p>
+                    </div>
+                </div>
+                <div class="group group-left clearfix position-2">
+                    <div class="desc-box">
+                        <span class="date">2018</span>
+                        <h4>HACKATHON</h4>
+                        <span class="sub-title">Programmer</span>
+                        <p>
+                            As part of a team of programmers, we created a virtual assistant application using the
+                            Amazon Alexa in 6hrs based on current topic matter. <br /> The purpose of our application
+                            was to
+                            allow a group of friends to keep track of their scores whilst playing sports this includes
+                            Tennis, Badminton, Football, and more.
+                        </p>
+                    </div>
+                    <span class="point-circle"></span>
+                </div>
+                <div class="group clearfix position-3">
+                    <span class="point-circle"></span>
+                    <div class="desc-box">
+                        <span class="date">2016 - 2018</span>
+                        <h4>BSC (Honours) - Computing</h4><span class="sub-title">Unversity of Abertay Dundee</span>
+                        <p>
+                            Finished a Honours Degree at Univserity of Abertay Dundee gaining a 2:1 degree
+                            <br /><br />
+                            Modules: Databases, Software Development, Android Development, Artificial Intelligence,
+                            Enterprise Systems Engineering, and Languages and Compilers
+                        </p>
+                    </div>
+                </div>
+                <div class="group group-left clearfix position-4">
+                    <div class="desc-box">
+                        <span class="date">2017</span>
+                        <h4>GLOBAL GAME JAM</h4><span class="sub-title">Programmer / Art assistant</span>
+                        <p>
+                            As part of a team of programmers we created a game in 24hrs based on current topic matter.
+                            Our game “Here They Come” is a side-scrolling, hack ‘n’ slash shoot ‘em up set in a sci-fi,
+                            cyber-punk, black-and-white Frank Miller-esque 2D world.
+                        </p>
+                    </div>
+                    <span class="point-circle"></span>
+                </div>
+                <div class="group clearfix position-5">
+                    <span class="point-circle"></span>
+                    <div class="desc-box">
+                        <span class="date date-long">2014 - 2016</span>
+                        <h4>HND - Software Development</h4>
+                        <span class="sub-title">Dundee and Angus College</span>
+                        <p>
+                            Two-year course focusing on the practical and theoretical side of software development.
+                            <br /><br />
+                            Modules: Databases & SQL, C++, Java, C#, Computer Ethics, Trouble Shooting, Website Design
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="recent">
+        <h1 class="text-heading">projects</h1>
+        <div class="container">
+            <ul>
+                <li>
+                    <img src="imgs/work/pic_01.png" alt="4 minutes around the world">
+                    <div class="overlay">
+                        <div class="heading">4 minutes around the world</div>
+                        <div class="sub-text">blah blah blah.</div>
+                    </div>
+                </li>
+                <li>
+                    <img src="imgs/work/pic_02.png" alt="animals in need">
+                    <div class="overlay">
+                        <div class="heading">animals in need</div>
+                        <div class="sub-text">blah blah blah.</div>
+                    </div>
+                </li>
+                <li>
+                    <img src="imgs/work/pic_03.png" alt="do you live in an isolated community">
+                    <div class="overlay">
+                        <div class="heading">isolated communities</div>
+                        <div class="sub-text">blah blah blah.</div>
+                    </div>
+                </li>
+                <li>
+                    <img src="imgs/work/pic_06.png" alt="match prediction">
+                    <div class="overlay">
+                        <div class="heading">Match prediction generator</div>
+                        <div class="sub-text">blah blah blah.</div>
+                    </div>
+                </li>
+                <li>
+                    <img src="imgs/work/pic_04.png" alt="here they come">
+                    <div class="overlay">
+                        <div class="heading">here they come</div>
+                        <div class="sub-text">blah blah blah.</div>
+                    </div>
+                </li>
+                <li>
+                    <img src="imgs/work/pic_05.png" alt="age-invariant facial recognition">
+                    <div class="overlay">
+                        <div class="heading">age-invariant facial recognition</div>
+                        <div class="sub-text">blah blah blah.</div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </section>
+    <footer class="footer">
+        <div class="wrapper">
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/cullenwillis/"><img src="imgs/icons/icon-linkedIn.png"
+                        alt="LinkedIn" /></a>
+                <a href="https://github.com/CullenWillis"><img src="imgs/icons/icon-github.png" alt="github" /></a>
+                <a><img src="imgs/icons/icon-resume.png" href="" alt="resume" /></a>
+            </div>
+            <div class="copyright">Created by Cullen Willis</div>
+        </div>
+    </footer>
 
-    }, 3000);
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
 
-    function shuffleEffect(text) {
-      var theLetters = "abcdefghijklmnopqrstuvwxyz"; //You can customize what letters it will cycle through
-      var ctnt = text; // Your text goes here
-      var speed = 50; // ms per frame
-      var increment = 3; // frames per step. Must be >2
+    <script src="libs/three.min.js"></script>
 
-      var clen = ctnt.length;
-      var si = 0;
-      var stri = 0;
-      var block = "";
-      var fixed = "";
-
-      (function rustle(i) {
-        setTimeout(function () {
-          if (--i) {
-            rustle(i);
-          }
-          nextFrame(i);
-          si = si + 1;
-        }, speed);
-      })
-
-      (clen * increment + 1);
-
-      function nextFrame(pos) {
-        for (var i = 0; i < clen - stri; i++) {
-          var num = Math.floor(theLetters.length * Math.random());
-          var letter = theLetters.charAt(num);
-          block = block + letter;
-        }
-
-        if (si == (increment - 1)) {
-          stri++;
-        }
-
-        if (si == increment) {
-          fixed = fixed + ctnt.charAt(stri - 1);
-          si = 0;
-        }
-
-        var tempMsg = fixed + block;
-        $(".shuffle").html(tempMsg);
-
-        block = "";
-      }
-    }
-  </script>
+    <script src="js/spaceTHREE.js"></script>
+    <script src="js/script.js"></script>
 </body>
 
 </html>

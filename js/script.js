@@ -11,8 +11,8 @@ $(window).resize(function() {
 
 var template = null;
 var tools = [
-  "HTML5", "CSS3", "JavaScript", "Jquery",
-  "PHP", "MySQL", "Java", "CSharp",
+  "HTML5", "CSS3",
+  "PHP", "MySQL",
   "Python", "Spark", "Scala", "Hadoop",
   "TensorFlow", "OpenCV", "GoogleAnalytics", "Git",
   "GitHub", "Photoshop", "Linux", "Windows",
@@ -21,12 +21,39 @@ var tools = [
 
 function runSetup() {
   scrollAnimation();
+  progressAnimation();
   populateTools();
 }
 
 function scrollAnimation() {
   jq(".header .container").css("display", "flex").hide().fadeIn("slow", function () {
     jq(".header .divider div").slideDown("slow");
+  });
+}
+
+function progressAnimation() {
+  var values = {
+    "JavaScript": "85%",
+    "Java": "75%",
+    "C Sharp": "60%",
+    "JQuery": "70%"
+  };
+
+  jq(".bars li").each(function () {
+    var key = jq(".icon-wrapper .text", this).text();
+    jq(".progress-amount", this).animate({
+      width: values[key],
+    }, 1000);
+
+    jq(".counter", this).prop('Counter', 0).animate({
+      Counter: values[key].split("%")[0]
+    }, {
+      duration: 1000,
+      easing: 'swing',
+      step: function (now) {
+        jq(this).text(Math.ceil(now) + "%");
+      }
+    });
   });
 }
 
@@ -43,7 +70,7 @@ function populateTools() {
       .attr("alt", element);
     jq(".text", clone).text(element);
 
-    jq(".about ul").append(clone);
+    jq(".tools ul").append(clone);
   }
 }
 

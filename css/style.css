@@ -35,7 +35,7 @@ body {
     top: 50px;
     left: 50px;
     width: 300px;
-    height: 280px;
+    height: 480px;
 
     display: flex;
     flex-direction: row;
@@ -98,6 +98,14 @@ body {
     height: 50px;
 }
 
+.header .description {
+    font-size: 15px;
+    color: #fff;
+    font-family: "Avenir Book", Helvetica, Arial, sans-serif;
+    line-height: 1.2;
+    margin: 20px 0;
+}
+
 .canvas {
     width: 100%;
     height: 100%;
@@ -137,48 +145,91 @@ body {
     max-width: 1100px;
     width: 100%;
     margin: 0 auto;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
-.about .column {
-    height: 100%;
-    width: 480px;
 }
 
 .about .text {
     font-family: "Avenir Book", Helvetica, Arial, sans-serif;
 }
 
-.about li .text {
-    font-size: 15px;
+.about .column.bars {
+    height: 225px;
+    width: 90%;
+    margin: 0 auto 75px;
 }
 
-.about .breif {}
+.about .bars ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    color: RGBA(255, 255, 255, .6);
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+}
 
-.about .breif .description {
-    padding: 50px;
-    border: 1px solid RGBA(255, 255, 255, .4);
+.about .bars li {
+    width: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.about .icon-wrapper {
+    height: 100%;
+    width: 17%;
+}
+
+.about .bars img {
+    max-width: 50px;
+    max-height: 55px;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 10px;
+    margin: 0 auto;
+    display: block;
+}
+
+
+.about .bars .text {
+    width: 100%;
+    text-align: center;
+}
+
+.about .progress-bar {
+    display: block;
+    width: 70%;
+    height: 25px;
+    border: 1px solid RGBA(255, 255, 255, .5);
+    border-radius: 10px;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.about .progress-bar .progress-amount {
+    width: 0%;
+    height: 100%;
+    background: #fff;
+}
+
+.about .text.counter {
+    width: 10%;
     font-size: 18px;
     color: #fff;
-    font-family: "Avenir Book", Helvetica, Arial, sans-serif;
-    line-height: 1.2;
 }
 
-.about .breif img {
-    width: 100%;
-    margin: 50px 0 0;
+.about .column.tools {
+    height: 100%;
+    width: 90%;
+    margin: 0 auto;
 }
 
-.about .breif span {
-    float: left;
-    font-family: "Oswald", Helvetica, Arial, sans-serif;
-    font-size: 65px;
-    line-height: 1;
-    padding: 0 15px 5px 0;
-    margin-top: -7px;
-    color: RGBA(255, 255, 255, .6);
+.about li .text {
+    font-size: 15px;
 }
 
 .about .tools ul {
@@ -210,6 +261,11 @@ body {
     width: 100%;
     height: 100%;
     padding-bottom: 10px;
+}
+
+.about .tools .text {
+    width: 100%;
+    text-align: center;
 }
 
 .progress {
@@ -277,10 +333,10 @@ body {
 .progress .steps-container h4 {
     font-family: "Avenir light", Helvetica, Arial, sans-serif;
     text-align: left;
-    margin-top: 0;
     font-weight: bold;
     font-size: 18px;
     color: #fff;
+    margin-top: 10px;
 }
 
 .progress .steps-container .desc-box .sub-title {
@@ -298,18 +354,9 @@ body {
     color: #cccccc
 }
 
-.progress .steps-container .date-wrapper {
-    position: relative;
-    width: 45%;
-    top: 30px;
-    float: left;
-}
-
 .progress .steps-container .date {
     display: inline-block;
-    padding: 8px 25px;
     font-size: 18px;
-    float: right;
     color: #fff;
     /*#FFD500;*/
     font-weight: bold;
@@ -326,7 +373,7 @@ body {
     margin: 0 auto;
     left: 0;
     right: 0;
-    top: 23px;
+    top: 15px;
     border-radius: 100%;
 
     background: url("../imgs/icons/sprite.png") no-repeat scroll top left #000;
@@ -410,15 +457,8 @@ body {
 }
 
 .progress .steps-container .group-left .date {
-    left: 10%;
-}
-
-.progress .steps-container .group-left .date {
-    float: left;
-}
-
-.progress .steps-container .group-left .date-wrapper {
-    float: right;
+    width: 100%;
+    text-align: right;
 }
 
 .progress .steps-container .group-left h4,
@@ -428,20 +468,25 @@ body {
 }
 
 .recent {
-    background: #ececee;
     width: 100%;
     height: 100%;
-    padding: 75px 0;
+    padding: 0;
+
+    background: url("../imgs/background/2k_stars.jpg") #000;
+
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 .recent .container {
-    max-width: 1000px;
     height: 100%;
     margin: 0 auto;
 }
 
 .recent .text-heading {
-    color: #373737;
+    color: #fff;
+    margin-bottom: 75px;
 }
 
 .recent ul {
@@ -460,9 +505,10 @@ body {
 .recent li {
     position: relative;
     width: 33%;
-    height: 270px;
+    height: 100%;
     overflow: hidden;
     margin-bottom: .5%;
+    overflow: hidden;
 }
 
 .recent img {
@@ -555,6 +601,7 @@ body {
     text-align: center;
     color: #fff;
     font-family: "Avenir Book", Helvetica, Arial, sans-serif;
+    font-size: 18px;
     position: relative;
 }
 
