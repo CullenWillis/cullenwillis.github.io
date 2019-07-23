@@ -15,8 +15,8 @@ var tools = [
   "PHP", "MySQL", "Java", "CSharp",
   "Python", "Spark", "Scala", "Hadoop",
   "TensorFlow", "OpenCV", "GoogleAnalytics", "Git",
-  "GitHub", "Photoshop", "Linux",
-  "Windows", "AndroidStudio", "Unity",
+  "GitHub", "Photoshop", "Linux", "Windows",
+  "AndroidStudio", "Unity",
 ];
 
 function runSetup() {
