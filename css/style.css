@@ -126,16 +126,7 @@ body {
 }
 
 .about {
-    background: #a84a69;
-    /* Old browsers */
-    background: -moz-linear-gradient(top right, #a84a69 0%, #e17563 33%, #ffb25b 66%, #f9f871 100%);
-    /* FF3.6-15 */
-    background: -webkit-linear-gradient(top right, #a84a69 0%, #e17563 33%, #ffb25b 66%, #f9f871 100%);
-    /* Chrome10-25,Safari5.1-6 */
-    background: linear-gradient(to top right, #a84a69 0%, #e17563 33%, #ffb25b 66%, #f9f871 100%);
-    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a84a69', endColorstr='#f9f871', GradientType=0);
-    /* IE6-9 */
+    background: url("../imgs/2k_stars_white.jpg") no-repeat center center;
 
     width: 100%;
     padding: 75px 0;
