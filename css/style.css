@@ -35,7 +35,7 @@ body {
     top: 50px;
     left: 50px;
     width: 300px;
-    height: 480px;
+    height: 280px;
 
     display: flex;
     flex-direction: row;
@@ -98,14 +98,6 @@ body {
     height: 50px;
 }
 
-.header .description {
-    font-size: 15px;
-    color: #fff;
-    font-family: "Avenir Book", Helvetica, Arial, sans-serif;
-    line-height: 1.2;
-    margin: 20px 0;
-}
-
 .canvas {
     width: 100%;
     height: 100%;
@@ -133,23 +125,82 @@ body {
     padding: 75px 0;
 }
 
-.about .wrapper {
+.about .container {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.about .column {
+    height: 100%;
+    width: 40%;
+    display: block;
+}
+
+.about .description {
+    padding: 50px;
+    border: 1px solid RGBA(255, 255, 255, .4);
+    font-size: 18px;
+    color: #fff;
+    font-family: "Avenir Book", Helvetica, Arial, sans-serif;
+    line-height: 1.2;
+}
+
+.about .description span {
+    float: left;
+    font-family: "Oswald", Helvetica, Arial, sans-serif;
+    font-size: 65px;
+    line-height: 1;
+    padding: 0 15px 5px 0;
+    margin-top: -7px;
+    color: RGBA(255, 255, 255, .6);
+}
+
+.about .description span {
+    font-size: 70px;
+    padding: 0 10px 0 0;
+}
+
+.about .hobbies .icon-wrapper {
+    height: 100%;
+    width: 100%;
+}
+
+.about .hobbies .icon-wrapper img {
+    height: 100%;
+    width: 100%;
+}
+
+.skills {
+    background: url("../imgs/2k_stars_white.jpg") no-repeat center center;
+
+    background-attachment: fixed;
+    width: 100%;
+    padding: 75px 0;
+}
+
+.skills .wrapper {
     max-width: 1100px;
     width: 100%;
     margin: 0 auto;
 }
 
-.about .text {
+.skills .text {
     font-family: "Avenir Book", Helvetica, Arial, sans-serif;
 }
 
-.about .column.bars {
+.skills .column.bars {
     height: 225px;
     width: 90%;
     margin: 0 auto 75px;
 }
 
-.about .bars ul {
+.skills .bars ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -163,19 +214,19 @@ body {
     margin: 0 auto;
 }
 
-.about .bars li {
+.skills .bars li {
     width: 45%;
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.about .icon-wrapper {
+.skills .icon-wrapper {
     height: 100%;
     width: 17%;
 }
 
-.about .bars img {
+.skills .bars img {
     max-width: 50px;
     max-height: 55px;
     width: 100%;
@@ -186,12 +237,12 @@ body {
 }
 
 
-.about .bars .text {
+.skills .bars .text {
     width: 100%;
     text-align: center;
 }
 
-.about .progress-bar {
+.skills .progress-bar {
     display: block;
     width: 70%;
     height: 25px;
@@ -202,29 +253,29 @@ body {
     overflow: hidden;
 }
 
-.about .progress-bar .progress-amount {
+.skills .progress-bar .progress-amount {
     width: 0%;
     height: 100%;
     background: #fff;
 }
 
-.about .text.counter {
+.skills .text.counter {
     width: 10%;
     font-size: 18px;
     color: #fff;
 }
 
-.about .column.tools {
+.skills .column.tools {
     height: 100%;
     width: 90%;
     margin: 0 auto;
 }
 
-.about li .text {
+.skills li .text {
     font-size: 15px;
 }
 
-.about .tools ul {
+.skills .tools ul {
     display: flex;
     justify-content: flex-start;
     -ms-flex-wrap: wrap;
@@ -236,7 +287,7 @@ body {
     margin: 0 auto;
 }
 
-.about .tools li {
+.skills .tools li {
     width: calc(100% / 8);
     max-width: 100px;
     padding: 20px 30px;
@@ -247,7 +298,7 @@ body {
     align-items: center;
 }
 
-.about .tools img {
+.skills .tools img {
     max-width: 50px;
     max-height: 55px;
     width: 100%;
@@ -255,7 +306,7 @@ body {
     padding-bottom: 10px;
 }
 
-.about .tools .text {
+.skills .tools .text {
     width: 100%;
     text-align: center;
 }
