@@ -143,3 +143,17 @@
     width: 100%;
     opacity: .75;
 }
+
+.mainBody.du-mobile .footer .wrapper {
+    width: 100%;
+    max-width: 325px;
+    margin: 0 auto;
+}
+
+.mainBody.du-mobile .footer .social-icons a {
+    padding: 5px;
+}
+
+.mainBody.du-mobile .footer .copyright {
+    font-size: 14px;
+}

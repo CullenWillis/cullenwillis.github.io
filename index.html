@@ -9,11 +9,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/stylePortfolio.css" rel="stylesheet">
     <link href="css/mobile.css" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Condensed&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+
+    <script src="js/pageEffect/modernizr.custom.js"></script>
 </head>
 
 <body>
@@ -211,30 +214,102 @@
         <section class="recent">
             <h1 class="text-heading">projects</h1>
             <div class="container">
-                <ul>
+                <ul id="rb-grid" class="rb-grid">
                     <li>
                         <img src="imgs/work/pic_01.png" alt="4 minutes around the world">
+                        <div class="rb-overlay">
+                            <span class="rb-close"></span>
+                            <div class="rb-display">
+                                <img class="overlay-header" src="imgs/work/pic_01.png" alt="4 minutes around the world">
+                                <div class="overlay-content">
+
+                                </div>
+                            </div>
+                        </div>
                     </li>
                     <li>
                         <img src="imgs/work/pic_02.png" alt="animals in need">
+                        <div class="rb-overlay">
+                            <span class="rb-close"></span>
+                            <div class="rb-display">
+                                <img class="overlay-header" src="imgs/work/pic_02.png" alt="4 minutes around the world">
+                                <div class="overlay-content">
+
+                                </div>
+                            </div>
+                        </div>
                     </li>
                     <li>
                         <img src="imgs/work/pic_03.png" alt="do you live in an isolated community">
+                        <div class="rb-overlay">
+                            <span class="rb-close"></span>
+                            <div class="rb-display">
+                                <img class="overlay-header" src="imgs/work/pic_03.png" alt="4 minutes around the world">
+                                <div class="overlay-content">
+
+                                </div>
+                            </div>
+                        </div>
                     </li>
                     <li>
                         <img src="imgs/work/pic_08.png" alt="How well do you know the UK?">
+                        <div class="rb-overlay">
+                            <span class="rb-close"></span>
+                            <div class="rb-display">
+                                <img class="overlay-header" src="imgs/work/pic_08.png" alt="4 minutes around the world">
+                                <div class="overlay-content">
+
+                                </div>
+                            </div>
+                        </div>
                     </li>
                     <li>
                         <img src="imgs/work/pic_06.png" alt="match prediction">
+                        <div class="rb-overlay">
+                            <span class="rb-close"></span>
+                            <div class="rb-display">
+                                <img class="overlay-header" src="imgs/work/pic_06.png" alt="4 minutes around the world">
+                                <div class="overlay-content">
+
+                                </div>
+                            </div>
+                        </div>
                     </li>
                     <li>
                         <img src="imgs/work/pic_04.png" alt="here they come">
+                        <div class="rb-overlay">
+                            <span class="rb-close"></span>
+                            <div class="rb-display">
+                                <img class="overlay-header" src="imgs/work/pic_04.png" alt="4 minutes around the world">
+                                <div class="overlay-content">
+
+                                </div>
+                            </div>
+                        </div>
                     </li>
                     <li>
                         <img src="imgs/work/pic_05.png" alt="age-invariant facial recognition">
+                        <div class="rb-overlay">
+                            <span class="rb-close"></span>
+                            <div class="rb-display">
+                                <img class="overlay-header" src="imgs/work/pic_05.png" alt="4 minutes around the world">
+                                <div class="overlay-content">
+
+                                </div>
+                            </div>
+                        </div>
                     </li>
                     <li>
                         <img src="imgs/work/pic_07.png" alt="server side chat application">
+                        <div class="rb-overlay">
+                            <span class="rb-close"></span>
+                            <div class="rb-display">
+                                <img class="overlay-header" src="imgs/work/pic_07.png" alt="4 minutes around the world">
+                                <div class="overlay-content">
+
+                                </div>
+                            </div>
+                        </div>
                     </li>
                 </ul>
             </div>
@@ -259,6 +334,14 @@
 
         <script src="js/spaceTHREE.js"></script>
         <script src="js/script.js"></script>
+
+        <script src="js/pageEffect/jquery.fittext.js"></script>
+        <script src="js/pageEffect/boxgrid.js"></script>
+        <script>
+            $(function () {
+                Boxgrid.init();
+            });
+        </script>
     </div>
 </body>
 

@@ -288,13 +288,14 @@ body {
 }
 
 .skills .tools li {
-    width: calc(100% / 8);
+    width: 15%;
+    margin: 0 auto;
     max-width: 100px;
     padding: 20px 30px;
 
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
 }
 
@@ -546,38 +547,18 @@ body {
 }
 
 .recent li {
+    cursor: pointer;
     position: relative;
     width: 24.5%;
     height: 100%;
     margin-bottom: .5%;
     overflow: hidden;
-    opacity: .5;
+    opacity: 1;
 }
 
 .recent img {
     height: 100%;
     width: 100%;
-}
-
-.recent li:hover {
-    opacity: 1;
-    cursor: pointer;
-
-    animation-name: fadeInOpacity;
-    animation-iteration-count: 1;
-    animation-timing-function: ease-in;
-    animation-duration: .1s;
-}
-
-
-@keyframes fadeInOpacity {
-    0% {
-        opacity: .5;
-    }
-
-    100% {
-        opacity: 1;
-    }
 }
 
 .recent .heading {
