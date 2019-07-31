@@ -116,9 +116,32 @@ body {
 }
 
 .rb-display .overlay-content {
-    width: 100%;
+    width: 75%;
+    margin: 0 auto;
     height: 700px;
-    padding-top: 425px;
+    padding-top: 35%;
+}
+
+.rb-display .overlay-content .languages {
+    width: 100%;
+    padding: 0;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.rb-display .overlay-content .languages li {
+    color: #000;
+    background: RGBA(255, 255, 255, .75);
+    padding: 10px 15px;
+    margin: 0 10px;
+    border-radius: 15px;
+    text-transform: uppercase;
+    font-weight: bold;
+    font-family: "Oswald", Helvetica, Arial, sans-serif;
+    font-size: 18px;
 }
 
 

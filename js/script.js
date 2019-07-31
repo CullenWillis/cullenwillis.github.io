@@ -20,18 +20,66 @@ var tools = [
 ];
 
 function runSetup() {
-  scrollAnimation();
-  progressAnimation();
   populateTools();
+
+  scrollEvents();
+  headerAnimation();
 }
 
-function scrollAnimation() {
+function scrollEvents() {
+  var sectionList = ["header", "about", "skills", "progress", "recent"];
+
+  jq(window).on("scroll", function () {
+    var key = sectionList[0];
+    var field = jq("." + key.toLowerCase());
+    var triggerPoint = (field.offset().top + field.outerHeight()) - jq(window).height();
+    var scrollPoint = jq(this).scrollTop();
+
+    switch (sectionList[0]) {
+      case "progress":
+        triggerPoint = 2600;
+        break;
+      case "skills":
+        triggerPoint = 1600;
+        break;
+    }
+
+    //console.log(scrollPoint, triggerPoint);
+    if (scrollPoint > triggerPoint) {
+      switch (key) {
+        case "about":
+          aboutAnimation();
+          break;
+        case "skills":
+          skillsAnimation();
+          break;
+        case "progress":
+          progressAnimation();
+          break;
+        case "recent":
+          recentAnimation();
+          break;
+      }
+
+      sectionList.shift();
+      if (sectionList.length == 0) {
+        jq(window).off("scroll");
+      }
+    }
+  });
+}
+
+function headerAnimation() {
   jq(".header .container").css("display", "flex").hide().fadeIn("slow", function () {
     jq(".header .divider div").slideDown("slow");
   });
 }
 
-function progressAnimation() {
+function aboutAnimation() {
+
+}
+
+function skillsAnimation() {
   var values = {
     "JavaScript": "85%",
     "Java": "75%",
@@ -55,6 +103,30 @@ function progressAnimation() {
       }
     });
   });
+
+  jq(".column.tools").fadeIn("slow");
+}
+
+function progressAnimation() {
+  var timeout = 1;
+  jq(".steps-container").fadeIn("slow", function () {
+
+  });
+  jq(".group").each(function () {
+    console.log("call", timeout);
+    jq(this).css("overflow", "hidden");
+    var _direction = jq(this).hasClass("group-right") ? "right" : "left";
+
+    jq(this).show("slide", {
+      direction: _direction
+    }, 1000, function () {
+      jq(".point-circle", this).fadeIn("slow");
+    });
+  });
+}
+
+function recentAnimation() {
+
 }
 
 function populateTools() {
