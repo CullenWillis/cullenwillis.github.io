@@ -1,13 +1,13 @@
 $(document).ready(function () {
   jq = $.noConflict(true);
-  //du_checkParentSize();
+  du_checkParentSize();
   runSetup();
 });
-/*
-$(window).resize(function() {
+
+$(window).resize(function () {
   du_checkParentSize();
-}); 
-*/
+});
+
 
 var template = null;
 var tools = [
@@ -75,7 +75,7 @@ function populateTools() {
 }
 
 var du_checkParentSize = function () {
-  var b = jq("#wrapper");
+  var b = jq(".mainBody");
 
   if (b.parent().width() > 650) {
     b.removeClass("du-mobile");
