@@ -87,20 +87,22 @@ function skillsAnimation() {
     "JQuery": "70%"
   };
 
-  jq(".bars li").each(function () {
-    var key = jq(".icon-wrapper .text", this).text();
-    jq(".progress-amount", this).animate({
-      width: values[key],
-    }, 1000);
+  jq(".bars").fadeIn("slow", function () {
+    jq("li", this).each(function () {
+      var key = jq(".icon-wrapper .text", this).text();
+      jq(".progress-amount", this).animate({
+        width: values[key],
+      }, 1000);
 
-    jq(".counter", this).prop('Counter', 0).animate({
-      Counter: values[key].split("%")[0]
-    }, {
-      duration: 1000,
-      easing: 'swing',
-      step: function (now) {
-        jq(this).text(Math.ceil(now) + "%");
-      }
+      jq(".counter", this).prop('Counter', 0).animate({
+        Counter: values[key].split("%")[0]
+      }, {
+        duration: 1000,
+        easing: 'swing',
+        step: function (now) {
+          jq(this).text(Math.ceil(now) + "%");
+        }
+      });
     });
   });
 
