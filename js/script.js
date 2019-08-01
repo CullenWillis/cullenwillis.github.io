@@ -44,7 +44,6 @@ function scrollEvents() {
         break;
     }
 
-    //console.log(scrollPoint, triggerPoint);
     if (scrollPoint > triggerPoint) {
       switch (key) {
         case "about":
@@ -115,7 +114,6 @@ function progressAnimation() {
 
   });
   jq(".group").each(function () {
-    console.log("call", timeout);
     jq(this).css("overflow", "hidden");
     var _direction = jq(this).hasClass("group-right") ? "right" : "left";
 
