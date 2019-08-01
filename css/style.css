@@ -5,10 +5,28 @@ body {
 }
 
 .navbar {
-    display: none;
-    width: 100%;
-    height: 100px;
-    padding: 0 25%;
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    width: auto;
+    height: 25px;
+
+    z-index: 100;
+}
+
+.navbar a {
+    color: #fff;
+
+    margin: 0 25px;
+    font-family: "Avenir Book", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1.7em;
+}
+
+.navbar a:hover {
+    color: RGBA(255, 255, 255, .5);
 }
 
 .header {
@@ -554,7 +572,7 @@ body {
 .recent .rb-item {
     cursor: pointer;
     position: relative;
-    width: 24.5%;
+    width: 33%;
     height: auto;
     overflow: hidden;
     opacity: 0.25;
@@ -685,4 +703,10 @@ body {
     height: 35px;
     cursor: pointer;
     overflow: hidden;
+}
+
+.about,
+.skills,
+.progress {
+    display: block;
 }
