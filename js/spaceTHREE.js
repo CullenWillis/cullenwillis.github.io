@@ -50,9 +50,7 @@ DAT.Globe = function (container) {
     };
 
     var camera, scene, renderer, w, h;
-    var earthMesh, atmosphereMesh, moonMesh;
-
-    var overRenderer;
+    var earthMesh, atmosphereMesh;
 
     var curZoomSpeed = 0;
 
@@ -69,7 +67,7 @@ DAT.Globe = function (container) {
             y: 0
         },
         incr_rotation = {
-            x: -0.001,
+            x: -0.002,
             y: 0
         },
         target = {
@@ -82,7 +80,8 @@ DAT.Globe = function (container) {
         };
 
     var distance = 100000,
-        distanceTarget = 100000;
+        distanceTarget = 100000,
+        takeoff = 1.2;
     var PI_HALF = Math.PI / 2;
 
     function init() {
@@ -133,21 +132,22 @@ DAT.Globe = function (container) {
     /* EARTH CREATION */
     function createEarth() {
         var shader, uniforms, material;
-        var geometry = new THREE.SphereGeometry(200, 64, 64);
+        var geometry = new THREE.SphereGeometry(200, 128, 128);
 
         shader = Shaders['earth'];
         uniforms = THREE.UniformsUtils.clone(shader.uniforms);
 
-        uniforms['texture'].value = THREE.ImageUtils.loadTexture("imgs/background/world.jpg");
+        uniforms['texture'].value = THREE.ImageUtils.loadTexture("imgs/background/Earth.png");
 
         material = new THREE.ShaderMaterial({
             uniforms: uniforms,
             vertexShader: shader.vertexShader,
-            fragmentShader: shader.fragmentShader
+            fragmentShader: shader.fragmentShader,
         });
 
         mesh = new THREE.Mesh(geometry, material);
-        mesh.rotation.y = Math.PI;
+        mesh.rotation.y = Math.PI - .6;
+        mesh.rotation.x = -0.5;
 
         return mesh;
     }
@@ -180,29 +180,60 @@ DAT.Globe = function (container) {
         distanceTarget = distanceTarget < 350 ? 350 : distanceTarget;
     }
 
+    var freeplay = false;
+    var textureChanged = false;
+    var earthRotation = 1050;
+
     function render() {
         zoom(curZoomSpeed);
 
         target.x += incr_rotation.x;
         target.y += incr_rotation.y;
-        rotation.x += (target.x - rotation.x) * 0.1;;
+        rotation.x += (target.x - rotation.x) * 0.1;
         rotation.y += (target.y - rotation.y) * 0.1;
-        distance += (distanceTarget - distance) * 0.3;
+
+        if (distance < 1001 && !freeplay) {
+            runAnimation();
+
+            if (textureChanged) {
+                //runFreePlay();
+            }
+        } else {
+            distance += (distanceTarget - distance) * 0.3;
+        }
 
         camera.position.x = distance * Math.sin(rotation.x) * Math.cos(rotation.y);
         camera.position.y = distance * Math.sin(rotation.y);
         camera.position.z = distance * Math.cos(rotation.x) * Math.cos(rotation.y);
 
         camera.lookAt(new THREE.Vector3(earthMesh.position.x, earthMesh.position.y, earthMesh.position.z));
+        camera.rotation.z += earthRotation;
 
         renderer.render(scene, camera);
     }
 
-    /* EARTH EVENTS */
-    function addEvents() {
-        window.addEventListener('resize', onWindowResize, false);
+    function runAnimation() {
+        distance -= takeoff;
+        startAnimation = true;
+        if (distance <= 500) {
+            takeoff = 0;
+        }
+        if (rotation.x <= 3.825) {
+            incr_rotation.x = 0;
 
-        /*
+            if (!textureChanged) {
+
+                textureChanged = true;
+            }
+        }
+    }
+
+    function runFreePlay() {
+        distance = 1000;
+        incr_rotation.x = -.001;
+        freeplay = true;
+        earthRotation = 0;
+
         container.addEventListener('mousedown', onMouseDown, false);
         document.addEventListener('keydown', onDocumentKeyDown, false);
 
@@ -212,7 +243,10 @@ DAT.Globe = function (container) {
         container.addEventListener('mouseout', function () {
             overRenderer = false;
         }, false);
-        */
+    }
+    /* EARTH EVENTS */
+    function addEvents() {
+        window.addEventListener('resize', onWindowResize, false);
     }
 
     function onMouseDown(event) {

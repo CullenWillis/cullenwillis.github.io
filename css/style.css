@@ -4,14 +4,37 @@ body {
     padding: 0;
 }
 
+.wait {
+    background-color: rgba(0, 0, 0, 1);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 6;
+    left: 0;
+    top: 0;
+
+    padding-top: 200px;
+    font-family: "Avenir Book", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+}
+
+.mainBody {
+    position: relative;
+}
+
 .navbar {
+    display: none;
     position: fixed;
     top: 25px;
     right: 25px;
     width: auto;
     height: 25px;
 
-    z-index: 100;
+    z-index: 5;
 }
 
 .navbar a {

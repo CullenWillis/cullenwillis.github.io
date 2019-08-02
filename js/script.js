@@ -2,6 +2,8 @@ $(document).ready(function () {
   jq = $.noConflict(true);
   du_checkParentSize();
 
+  jq(".wait").hide();
+
   runSetup();
 });
 
@@ -24,6 +26,7 @@ var currentNav = null;
 var navBarConversion = {
   "home": ".header",
   "about": ".about",
+  "skills": ".skills",
   "experience": ".progress",
   "work": ".recent"
 };
@@ -100,6 +103,8 @@ function scrollEvents() {
 }
 
 function headerAnimation() {
+  jq(".navbar").fadeIn("slow");
+
   jq(".header .container").css("display", "flex").hide().fadeIn("slow", function () {
     jq(".header .divider div").slideDown("slow");
   });
