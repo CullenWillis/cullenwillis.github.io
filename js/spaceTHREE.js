@@ -90,13 +90,15 @@ DAT.Globe = function (container) {
         planetSetup();
         setupLights();
         addEvents();
+
+        animate();
     }
 
     function sceneSetup() {
         w = container.offsetWidth || window.innerWidth;
         h = container.offsetHeight || window.innerHeight;
 
-        camera = new THREE.PerspectiveCamera(40, w / h, 1, 10000);
+        camera = new THREE.PerspectiveCamera(30, w / h, 1, 10000);
         camera.position.z = distance;
 
         scene = new THREE.Scene();
@@ -126,8 +128,6 @@ DAT.Globe = function (container) {
         atmosphereMesh = createEarthAtmosphere();
         scene.add(atmosphereMesh);
 
-        moonMesh = createMoon();
-        scene.add(moonMesh);
     }
 
     /* EARTH CREATION */
@@ -138,7 +138,7 @@ DAT.Globe = function (container) {
         shader = Shaders['earth'];
         uniforms = THREE.UniformsUtils.clone(shader.uniforms);
 
-        uniforms['texture'].value = THREE.ImageUtils.loadTexture("imgs/world.jpg");
+        uniforms['texture'].value = THREE.ImageUtils.loadTexture("imgs/background/world.jpg");
 
         material = new THREE.ShaderMaterial({
             uniforms: uniforms,
@@ -174,32 +174,37 @@ DAT.Globe = function (container) {
         return mesh;
     }
 
-    function createMoon() {
-        var size = 200 / 4;
-        var geometry = new THREE.SphereGeometry(size, 64, 64);
-        var mapTexture = THREE.ImageUtils.loadTexture("imgs/moonmap1k.jpg");
-        var bumpTexture = THREE.ImageUtils.loadTexture("imgs/moonbump1k.jpg");
+    function zoom(delta) {
+        distanceTarget -= delta;
+        distanceTarget = distanceTarget > 1000 ? 1000 : distanceTarget;
+        distanceTarget = distanceTarget < 350 ? 350 : distanceTarget;
+    }
 
-        var material = new THREE.MeshPhongMaterial({
-            map: mapTexture,
-            bumpMap: bumpTexture,
-            bumpScale: 0.5,
-        });
+    function render() {
+        zoom(curZoomSpeed);
 
-        var mesh = new THREE.Mesh(geometry, material);
-        mesh.receiveShadow = true;
-        mesh.castShadow = true;
+        target.x += incr_rotation.x;
+        target.y += incr_rotation.y;
+        rotation.x += (target.x - rotation.x) * 0.1;;
+        rotation.y += (target.y - rotation.y) * 0.1;
+        distance += (distanceTarget - distance) * 0.3;
 
-        mesh.position.x = 500;
+        camera.position.x = distance * Math.sin(rotation.x) * Math.cos(rotation.y);
+        camera.position.y = distance * Math.sin(rotation.y);
+        camera.position.z = distance * Math.cos(rotation.x) * Math.cos(rotation.y);
 
-        return mesh;
+        camera.lookAt(new THREE.Vector3(earthMesh.position.x, earthMesh.position.y, earthMesh.position.z));
+
+        renderer.render(scene, camera);
     }
 
     /* EARTH EVENTS */
     function addEvents() {
+        window.addEventListener('resize', onWindowResize, false);
+
+        /*
         container.addEventListener('mousedown', onMouseDown, false);
         document.addEventListener('keydown', onDocumentKeyDown, false);
-        window.addEventListener('resize', onWindowResize, false);
 
         container.addEventListener('mouseover', function () {
             overRenderer = true;
@@ -207,6 +212,7 @@ DAT.Globe = function (container) {
         container.addEventListener('mouseout', function () {
             overRenderer = false;
         }, false);
+        */
     }
 
     function onMouseDown(event) {
@@ -270,39 +276,10 @@ DAT.Globe = function (container) {
         renderer.setSize(container.offsetWidth, container.offsetHeight);
     }
 
-    function zoom(delta) {
-        distanceTarget -= delta;
-        distanceTarget = distanceTarget > 1000 ? 1000 : distanceTarget;
-        distanceTarget = distanceTarget < 350 ? 350 : distanceTarget;
-    }
-
     function animate() {
         requestAnimationFrame(animate);
         render();
     }
 
-    function render() {
-        zoom(curZoomSpeed);
-
-        target.x += incr_rotation.x;
-        target.y += incr_rotation.y;
-        rotation.x += (target.x - rotation.x) * 0.1;;
-        rotation.y += (target.y - rotation.y) * 0.1;
-        distance += (distanceTarget - distance) * 0.3;
-
-        camera.position.x = distance * Math.sin(rotation.x) * Math.cos(rotation.y);
-        camera.position.y = distance * Math.sin(rotation.y);
-        camera.position.z = distance * Math.cos(rotation.x) * Math.cos(rotation.y);
-
-        moonMesh.rotation.y += .0025;
-        earthMesh.rotation.y += .001;
-
-        var vect = new THREE.Vector3(earthMesh.position.x, earthMesh.position.y, earthMesh.position.z);
-        camera.lookAt(vect);
-
-        renderer.render(scene, camera);
-    }
-
     init();
-    this.animate = animate;
 };

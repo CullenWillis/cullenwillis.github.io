@@ -1,6 +1,7 @@
 $(document).ready(function () {
   jq = $.noConflict(true);
   du_checkParentSize();
+
   runSetup();
 });
 
@@ -19,11 +20,41 @@ var tools = [
   "AndroidStudio", "Unity",
 ];
 
+var currentNav = null;
+var navBarConversion = {
+  "home": ".header",
+  "about": ".about",
+  "experience": ".progress",
+  "work": ".recent"
+};
+
 function runSetup() {
   populateTools();
 
+  runKeyBinds();
+
   scrollEvents();
   headerAnimation();
+}
+
+
+function runKeyBinds() {
+  jq(".navbar a").click(function () {
+    var key = jq(this).text().toLowerCase();
+
+    if (key == currentNav) {
+      return false;
+    }
+
+    jq(".navbar a").removeClass("navActive");
+    jq(this).addClass("navActive");
+    currentNav = key;
+    key = navBarConversion[key];
+
+    if (typeof key != "undefined") {
+      scrollPage(jq(key).offset().top, 1000);
+    }
+  });
 }
 
 function scrollEvents() {
@@ -129,6 +160,12 @@ function recentAnimation() {
 
 }
 
+var scrollPage = function (pos, dur) {
+  jq('html, body').animate({
+    scrollTop: parseInt(pos)
+  }, dur);
+};
+
 function populateTools() {
   template = jq(`<li><img/><div class="text"></div></li>`);
 
@@ -161,5 +198,4 @@ startSpaceTHREE();
 function startSpaceTHREE() {
   var container = document.getElementById("spaceTHREE");
   var globe = new DAT.Globe(container);
-  globe.animate();
 };

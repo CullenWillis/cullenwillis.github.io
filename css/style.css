@@ -15,14 +15,23 @@ body {
 }
 
 .navbar a {
-    color: #fff;
+    color: RGBA(255, 255, 255, 1);
 
     margin: 0 25px;
+    padding-bottom: 5px;
     font-family: "Avenir Book", Helvetica, Arial, sans-serif;
     text-transform: uppercase;
     font-weight: 700;
     cursor: pointer;
     line-height: 1.7em;
+}
+
+.navbar a.navActive {
+    border-bottom: 1px solid #fff;
+}
+
+.navbar a.navActive:hover {
+    color: RGBA(255, 255, 255, 1);
 }
 
 .navbar a:hover {
@@ -43,7 +52,7 @@ body {
 }
 
 .header canvas {
-    background: url("../imgs/2k_stars.jpg") no-repeat center center;
+    background: url("../imgs/background/2k_stars.jpg") no-repeat center center;
 
     background-attachment: fixed;
 }
@@ -62,6 +71,7 @@ body {
 }
 
 .header .divider {
+    display: none;
     width: 4px;
     height: 100%;
     margin-right: 25px;
@@ -86,6 +96,8 @@ body {
     text-align: left;
     font-size: 60px;
     margin: 0;
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
 }
 
 .header .text {
@@ -136,7 +148,7 @@ body {
 }
 
 .about {
-    background: url("../imgs/2k_stars_white.jpg") no-repeat center center;
+    background: url("../imgs/background/2k_stars_white.jpg") no-repeat center center;
 
     background-attachment: fixed;
     width: 100%;
@@ -195,7 +207,7 @@ body {
 }
 
 .skills {
-    background: url("../imgs/2k_stars_white.jpg") no-repeat center center;
+    background: url("../imgs/background/2k_stars_white.jpg") no-repeat center center;
 
     background-attachment: fixed;
     width: 100%;
@@ -643,7 +655,7 @@ body {
 }
 
 .footer {
-    background: url("../imgs/2k_stars.jpg") no-repeat center center;
+    background: url("../imgs/background/2k_stars.jpg") no-repeat center center;
 
     background-attachment: fixed;
 
