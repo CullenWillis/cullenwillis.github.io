@@ -20,13 +20,22 @@ DAT.Globe = function (container) {
             ].join('\n'),
             fragmentShader: [
                 'uniform sampler2D texture;',
-                'varying vec3 vNormal;',
+                'uniform sampler2D textureSco;',
+                'uniform sampler2D textureEng;',
+                'uniform float weightT2;',
+                'uniform float weightT3;',
+                '',
                 'varying vec2 vUv;',
+                '',
                 'void main() {',
-                'vec3 diffuse = texture2D( texture, vUv ).xyz;',
-                'float intensity = 1.05 - dot( vNormal, vec3( 0.0, 0.0, 1.0 ) );',
-                'vec3 atmosphere = vec3( 1.0, 1.0, 1.0 ) * pow( intensity, 3.0 );',
-                'gl_FragColor = vec4( diffuse + atmosphere, 1.0 );',
+                '   vec4 texel1 = texture2D(texture, vUv);',
+                '   vec4 texel2 = texture2D(textureSco, vUv);',
+                '   vec4 texel3 = texture2D(textureEng, vUv);',
+                '',
+                '   float weightT1 = 1.0 - weightT2 - weightT3;',
+                '',
+                '   vec4 resultColor = texel2 * weightT2 + texel3 * weightT3 + texel1 * weightT1;',
+                '   gl_FragColor = resultColor;',
                 '}'
             ].join('\n')
         },
@@ -49,6 +58,8 @@ DAT.Globe = function (container) {
         }
     };
 
+    var _opacitySco = 0.0;
+    var _opacityEng = 0.0;
     var camera, scene, renderer, w, h;
     var earthMesh, atmosphereMesh;
 
@@ -137,7 +148,32 @@ DAT.Globe = function (container) {
         shader = Shaders['earth'];
         uniforms = THREE.UniformsUtils.clone(shader.uniforms);
 
-        uniforms['texture'].value = THREE.ImageUtils.loadTexture("imgs/background/Earth.png");
+        /*uniforms['texture'].value = THREE.ImageUtils.loadTexture("imgs/background/Earth.png");
+        uniforms['textureSco'].value = THREE.ImageUtils.loadTexture("imgs/background/EarthScot.png");
+        uniforms['textureEng'].value = THREE.ImageUtils.loadTexture("imgs/background/EarthEng.png");
+        */
+        uniforms = {
+            "texture": {
+                type: 't',
+                value: THREE.ImageUtils.loadTexture("imgs/background/Earth.png")
+            },
+            "textureSco": {
+                type: 't',
+                value: THREE.ImageUtils.loadTexture("imgs/background/EarthScot.png")
+            },
+            "textureEng": {
+                type: 't',
+                value: THREE.ImageUtils.loadTexture("imgs/background/EarthEng.png")
+            },
+            "weightT2": {
+                type: "f",
+                value: _opacitySco
+            },
+            "weightT3": {
+                type: "f",
+                value: _opacityEng
+            },
+        };
 
         material = new THREE.ShaderMaterial({
             uniforms: uniforms,
@@ -222,17 +258,52 @@ DAT.Globe = function (container) {
             incr_rotation.x = 0;
 
             if (!textureChanged) {
-
                 textureChanged = true;
+
+                setTimeout(function () {
+                    var x = setInterval(function () {
+                        _opacitySco += 0.1;
+                        earthMesh.material.uniforms.weightT2.value = _opacitySco;
+
+                        if (_opacitySco >= 1.0) {
+                            clearInterval(x);
+
+                            setTimeout(function () {
+                                var z = setInterval(function () {
+                                    _opacitySco -= 0.1;
+                                    _opacityEng += 0.1;
+                                    earthMesh.material.uniforms.weightT2.value = _opacitySco;
+                                    earthMesh.material.uniforms.weightT3.value = _opacityEng;
+
+                                    if (_opacityEng >= 1.0 && _opacitySco <= 0.0) {
+                                        clearInterval(z);
+
+                                        setTimeout(function () {
+                                            var x = setInterval(function () {
+                                                _opacityEng -= 0.1;
+                                                earthMesh.material.uniforms.weightT3.value = _opacityEng;
+
+                                                if (_opacityEng <= 0.0) {
+                                                    clearInterval(x);
+                                                }
+                                            }, 50);
+                                            runFreePlay();
+                                        }, 5000);
+                                    }
+                                }, 50);
+                            }, 5000);
+                        }
+                    }, 50);
+                }, 1000);
             }
         }
     }
 
     function runFreePlay() {
-        distance = 1000;
         incr_rotation.x = -.001;
         freeplay = true;
         earthRotation = 0;
+        distance = 1000;
 
         container.addEventListener('mousedown', onMouseDown, false);
         document.addEventListener('keydown', onDocumentKeyDown, false);
