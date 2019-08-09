@@ -103,7 +103,7 @@ function scrollEvents() {
 }
 
 function headerAnimation() {
-  jq(".navbar").fadeIn("slow");
+  jq(".navbar").fadeOut("slow");
 
   jq(".header .container").css("display", "flex").hide().fadeIn("slow", function () {
     jq(".header .divider div").slideDown("slow");

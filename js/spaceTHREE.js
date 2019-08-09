@@ -231,9 +231,7 @@ DAT.Globe = function (container) {
         if (distance < 1001 && !freeplay) {
             runAnimation();
 
-            if (textureChanged) {
-                //runFreePlay();
-            }
+            if (textureChanged) {}
         } else {
             distance += (distanceTarget - distance) * 0.3;
         }
@@ -261,6 +259,9 @@ DAT.Globe = function (container) {
                 textureChanged = true;
 
                 setTimeout(function () {
+                    jq(".animation .sco").animate({
+                        opacity: 1
+                    }, 1000);
                     var x = setInterval(function () {
                         _opacitySco += 0.1;
                         earthMesh.material.uniforms.weightT2.value = _opacitySco;
@@ -269,6 +270,13 @@ DAT.Globe = function (container) {
                             clearInterval(x);
 
                             setTimeout(function () {
+                                jq(".animation .sco").animate({
+                                    opacity: 0
+                                }, 1000);
+                                jq(".animation .eng").animate({
+                                    opacity: 1
+                                }, 1000);
+
                                 var z = setInterval(function () {
                                     _opacitySco -= 0.1;
                                     _opacityEng += 0.1;
@@ -279,6 +287,8 @@ DAT.Globe = function (container) {
                                         clearInterval(z);
 
                                         setTimeout(function () {
+                                            jq(".animation .eng").css("opacity", "0");
+                                            jq(".animation").hide();
                                             var x = setInterval(function () {
                                                 _opacityEng -= 0.1;
                                                 earthMesh.material.uniforms.weightT3.value = _opacityEng;

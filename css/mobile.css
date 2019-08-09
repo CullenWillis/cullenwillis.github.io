@@ -1,11 +1,51 @@
+.mainBody.du-mobile .navbar {
+    display: none;
+}
+
 .mainBody.du-mobile .header .wrapper {
     position: absolute;
-    top: 50px;
+    top: 0;
     left: 15px;
 }
 
 .mainBody.du-mobile .header .divider {
     display: none;
+}
+
+.mainBody.du-mobile .header .container {
+    height: 80%;
+}
+
+.mainBody.du-mobile .header .text-heading {
+    font-size: 50px;
+}
+
+.mainBody.du-mobile .header img {
+    width: 40px;
+    height: 40px;
+}
+
+.mainBody.du-mobile .header .animation div {
+    font-size: 14px;
+}
+
+.mainBody.du-mobile .header .animation .sco {
+    width: 130px;
+    text-align: left;
+    margin-left: 170px;
+    padding-left: 5px;
+}
+
+.mainBody.du-mobile .header .animation .eng {
+    width: 130px;
+    text-align: left;
+    margin-right: 0;
+    border-left: 2px solid #fff;
+    border-right: 0px solid;
+    padding-left: 5px;
+    padding-right: 0;
+    margin-top: 0;
+    margin-left: 170px;
 }
 
 .mainBody.du-mobile .recent,
