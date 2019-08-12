@@ -148,14 +148,10 @@ DAT.Globe = function (container) {
         shader = Shaders['earth'];
         uniforms = THREE.UniformsUtils.clone(shader.uniforms);
 
-        /*uniforms['texture'].value = THREE.ImageUtils.loadTexture("imgs/background/Earth.png");
-        uniforms['textureSco'].value = THREE.ImageUtils.loadTexture("imgs/background/EarthScot.png");
-        uniforms['textureEng'].value = THREE.ImageUtils.loadTexture("imgs/background/EarthEng.png");
-        */
         uniforms = {
             "texture": {
                 type: 't',
-                value: THREE.ImageUtils.loadTexture("imgs/background/Earth.png")
+                value: THREE.ImageUtils.loadTexture("imgs/background/EarthIll.png")
             },
             "textureSco": {
                 type: 't',
@@ -264,7 +260,7 @@ DAT.Globe = function (container) {
                     }, 1000);
                     var x = setInterval(function () {
                         _opacitySco += 0.1;
-                        earthMesh.material.uniforms.weightT2.value = _opacitySco;
+                        //earthMesh.material.uniforms.weightT2.value = _opacitySco;
 
                         if (_opacitySco >= 1.0) {
                             clearInterval(x);
@@ -280,8 +276,8 @@ DAT.Globe = function (container) {
                                 var z = setInterval(function () {
                                     _opacitySco -= 0.1;
                                     _opacityEng += 0.1;
-                                    earthMesh.material.uniforms.weightT2.value = _opacitySco;
-                                    earthMesh.material.uniforms.weightT3.value = _opacityEng;
+                                    //earthMesh.material.uniforms.weightT2.value = _opacitySco;
+                                    //earthMesh.material.uniforms.weightT3.value = _opacityEng;
 
                                     if (_opacityEng >= 1.0 && _opacitySco <= 0.0) {
                                         clearInterval(z);
@@ -291,7 +287,7 @@ DAT.Globe = function (container) {
                                             jq(".animation").hide();
                                             var x = setInterval(function () {
                                                 _opacityEng -= 0.1;
-                                                earthMesh.material.uniforms.weightT3.value = _opacityEng;
+                                                //earthMesh.material.uniforms.weightT3.value = _opacityEng;
 
                                                 if (_opacityEng <= 0.0) {
                                                     clearInterval(x);
