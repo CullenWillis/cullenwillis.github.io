@@ -135,8 +135,8 @@ DAT.Globe = function (container) {
         earthMesh = createEarth();
         scene.add(earthMesh);
 
-        atmosphereMesh = createEarthAtmosphere();
-        scene.add(atmosphereMesh);
+        //atmosphereMesh = createEarthAtmosphere();
+        //scene.add(atmosphereMesh);
 
     }
 
@@ -151,7 +151,7 @@ DAT.Globe = function (container) {
         uniforms = {
             "texture": {
                 type: 't',
-                value: THREE.ImageUtils.loadTexture("imgs/background/EarthIll.png")
+                value: THREE.ImageUtils.loadTexture("imgs/background/Earth.png")
             },
             "textureSco": {
                 type: 't',
@@ -260,7 +260,7 @@ DAT.Globe = function (container) {
                     }, 1000);
                     var x = setInterval(function () {
                         _opacitySco += 0.1;
-                        //earthMesh.material.uniforms.weightT2.value = _opacitySco;
+                        earthMesh.material.uniforms.weightT2.value = _opacitySco;
 
                         if (_opacitySco >= 1.0) {
                             clearInterval(x);
@@ -276,8 +276,8 @@ DAT.Globe = function (container) {
                                 var z = setInterval(function () {
                                     _opacitySco -= 0.1;
                                     _opacityEng += 0.1;
-                                    //earthMesh.material.uniforms.weightT2.value = _opacitySco;
-                                    //earthMesh.material.uniforms.weightT3.value = _opacityEng;
+                                    earthMesh.material.uniforms.weightT2.value = _opacitySco;
+                                    earthMesh.material.uniforms.weightT3.value = _opacityEng;
 
                                     if (_opacityEng >= 1.0 && _opacitySco <= 0.0) {
                                         clearInterval(z);
@@ -287,7 +287,7 @@ DAT.Globe = function (container) {
                                             jq(".animation").hide();
                                             var x = setInterval(function () {
                                                 _opacityEng -= 0.1;
-                                                //earthMesh.material.uniforms.weightT3.value = _opacityEng;
+                                                earthMesh.material.uniforms.weightT3.value = _opacityEng;
 
                                                 if (_opacityEng <= 0.0) {
                                                     clearInterval(x);
@@ -310,6 +310,8 @@ DAT.Globe = function (container) {
         freeplay = true;
         earthRotation = 0;
         distance = 1000;
+        earthMesh.material.uniforms.weightT3.value = 0.0;
+        earthMesh.material.uniforms.weightT2.value = 0.0;
 
         container.addEventListener('mousedown', onMouseDown, false);
         document.addEventListener('keydown', onDocumentKeyDown, false);
