@@ -96,18 +96,19 @@ body {
 .header .animation div {
     display: block;
     opacity: 0;
-    color: #fff;
     font-family: "Avenir Book", Helvetica, Arial, sans-serif;
     font-size: 20px;
     font-weight: 600;
     width: 300px;
     margin: 30px 0;
+    background: RGBA(0, 0, 0, .75);
+    color: #fff;
 }
 
 .header .animation .sco {
     width: 270px;
     text-align: left;
-    margin-left: 340px;
+    margin-left: 285px;
     border-left: 2px solid #fff;
     padding-left: 15px;
 }

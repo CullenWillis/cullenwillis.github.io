@@ -38,30 +38,13 @@ DAT.Globe = function (container) {
                 '   gl_FragColor = resultColor;',
                 '}'
             ].join('\n')
-        },
-        'atmosphere': {
-            uniforms: {},
-            vertexShader: [
-                'varying vec3 vNormal;',
-                'void main() {',
-                'vNormal = normalize( normalMatrix * normal );',
-                'gl_Position = projectionMatrix * modelViewMatrix * vec4( position, 1.0 );',
-                '}'
-            ].join('\n'),
-            fragmentShader: [
-                'varying vec3 vNormal;',
-                'void main() {',
-                'float intensity = pow( 0.8 - dot( vNormal, vec3( 0, 0, 1.0 ) ), 12.0 );',
-                'gl_FragColor = vec4( 1.0, 1.0, 1.0, 1.0 ) * intensity;',
-                '}'
-            ].join('\n')
         }
     };
 
     var _opacitySco = 0.0;
     var _opacityEng = 0.0;
     var camera, scene, renderer, w, h;
-    var earthMesh, atmosphereMesh;
+    var earthMesh;
 
     var curZoomSpeed = 0;
 
@@ -78,7 +61,7 @@ DAT.Globe = function (container) {
             y: 0
         },
         incr_rotation = {
-            x: -0.002,
+            x: -0.003,
             y: 0
         },
         target = {
@@ -92,7 +75,7 @@ DAT.Globe = function (container) {
 
     var distance = 100000,
         distanceTarget = 100000,
-        takeoff = 1.2;
+        takeoff = 1.9;
     var PI_HALF = Math.PI / 2;
 
     function init() {
@@ -134,32 +117,35 @@ DAT.Globe = function (container) {
     function planetSetup() {
         earthMesh = createEarth();
         scene.add(earthMesh);
-
-        //atmosphereMesh = createEarthAtmosphere();
-        //scene.add(atmosphereMesh);
-
     }
 
     /* EARTH CREATION */
     function createEarth() {
         var shader, uniforms, material;
-        var geometry = new THREE.SphereGeometry(200, 128, 128);
+        var geometry = new THREE.SphereGeometry(200, 64, 64);
 
         shader = Shaders['earth'];
         uniforms = THREE.UniformsUtils.clone(shader.uniforms);
 
+        var earthTexture = THREE.ImageUtils.loadTexture("imgs/background/earth.png");
+        var scoTexture = THREE.ImageUtils.loadTexture("imgs/background/earthSco.png");
+        var engTexture = THREE.ImageUtils.loadTexture("imgs/background/earthEng.png");
+        earthTexture.minFilter = THREE.NearestFilter;
+        scoTexture.minFilter = THREE.NearestFilter;
+        engTexture.minFilter = THREE.NearestFilter;
+
         uniforms = {
             "texture": {
                 type: 't',
-                value: THREE.ImageUtils.loadTexture("imgs/background/Earth.png")
+                value: earthTexture
             },
             "textureSco": {
                 type: 't',
-                value: THREE.ImageUtils.loadTexture("imgs/background/EarthScot.png")
+                value: scoTexture
             },
             "textureEng": {
                 type: 't',
-                value: THREE.ImageUtils.loadTexture("imgs/background/EarthEng.png")
+                value: engTexture
             },
             "weightT2": {
                 type: "f",
@@ -174,34 +160,12 @@ DAT.Globe = function (container) {
         material = new THREE.ShaderMaterial({
             uniforms: uniforms,
             vertexShader: shader.vertexShader,
-            fragmentShader: shader.fragmentShader,
+            fragmentShader: shader.fragmentShader
         });
 
         mesh = new THREE.Mesh(geometry, material);
         mesh.rotation.y = Math.PI - .6;
         mesh.rotation.x = -0.5;
-
-        return mesh;
-    }
-
-    function createEarthAtmosphere() {
-        var shader, uniforms, material;
-        var geometry = new THREE.SphereGeometry(200, 64, 64);
-
-        shader = Shaders['atmosphere'];
-        uniforms = THREE.UniformsUtils.clone(shader.uniforms);
-
-        material = new THREE.ShaderMaterial({
-            uniforms: uniforms,
-            vertexShader: shader.vertexShader,
-            fragmentShader: shader.fragmentShader,
-            side: THREE.BackSide,
-            blending: THREE.AdditiveBlending,
-            transparent: true
-        });
-
-        mesh = new THREE.Mesh(geometry, material);
-        mesh.scale.set(1.1, 1.1, 1.1);
 
         return mesh;
     }
@@ -214,7 +178,7 @@ DAT.Globe = function (container) {
 
     var freeplay = false;
     var textureChanged = false;
-    var earthRotation = 1050;
+    var earthRotation = 1100;
 
     function render() {
         zoom(curZoomSpeed);
@@ -229,7 +193,7 @@ DAT.Globe = function (container) {
 
             if (textureChanged) {}
         } else {
-            distance += (distanceTarget - distance) * 0.3;
+            distance += (distanceTarget - distance) * 0.2;
         }
 
         camera.position.x = distance * Math.sin(rotation.x) * Math.cos(rotation.y);
@@ -306,6 +270,7 @@ DAT.Globe = function (container) {
     }
 
     function runFreePlay() {
+
         incr_rotation.x = -.001;
         freeplay = true;
         earthRotation = 0;
