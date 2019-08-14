@@ -12,7 +12,7 @@ body {
     overflow: hidden;
     height: 100%;
     width: 100%;
-    position: absolute;
+    position: fixed;
     z-index: 6;
     left: 0;
     top: 0;
@@ -20,6 +20,150 @@ body {
     padding-top: 200px;
     font-family: "Avenir Book", Helvetica, Arial, sans-serif;
     font-weight: 700;
+}
+
+#loader {
+    width: 500px;
+    height: 150px;
+    margin: 100px auto;
+}
+
+#loader p {
+    margin: 0;
+}
+
+#loader .loading-label {
+    margin-top: 30px;
+    color: white;
+
+    text-transform: capitalize;
+    text-align: center;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 500;
+    font-size: 2.5em;
+}
+
+#loader .sub-title {
+    margin-top: 5px;
+    color: white;
+
+    text-align: center;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: lighter;
+    font-size: 1.25em;
+}
+
+.sk-folding-cube {
+    margin: auto;
+
+    width: 50px;
+    height: 50px;
+    position: relative;
+    -webkit-transform: rotateZ(45deg);
+    transform: rotateZ(45deg);
+}
+
+.sk-folding-cube .sk-cube {
+    float: left;
+    width: 50%;
+    height: 50%;
+    position: relative;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.sk-folding-cube .sk-cube:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    -webkit-animation: sk-foldCubeAngle 2.4s infinite linear both;
+    animation: sk-foldCubeAngle 2.4s infinite linear both;
+    -webkit-transform-origin: 100% 100%;
+    -ms-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+}
+
+.sk-folding-cube .sk-cube2 {
+    -webkit-transform: scale(1.1) rotateZ(90deg);
+    transform: scale(1.1) rotateZ(90deg);
+}
+
+.sk-folding-cube .sk-cube3 {
+    -webkit-transform: scale(1.1) rotateZ(180deg);
+    transform: scale(1.1) rotateZ(180deg);
+}
+
+.sk-folding-cube .sk-cube4 {
+    -webkit-transform: scale(1.1) rotateZ(270deg);
+    transform: scale(1.1) rotateZ(270deg);
+}
+
+.sk-folding-cube .sk-cube2:before {
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;
+}
+
+.sk-folding-cube .sk-cube3:before {
+    -webkit-animation-delay: 0.6s;
+    animation-delay: 0.6s;
+}
+
+.sk-folding-cube .sk-cube4:before {
+    -webkit-animation-delay: 0.9s;
+    animation-delay: 0.9s;
+}
+
+@-webkit-keyframes sk-foldCubeAngle {
+
+    0%,
+    10% {
+        -webkit-transform: perspective(140px) rotateX(-180deg);
+        transform: perspective(140px) rotateX(-180deg);
+        opacity: 0;
+    }
+
+    25%,
+    75% {
+        -webkit-transform: perspective(140px) rotateX(0deg);
+        transform: perspective(140px) rotateX(0deg);
+        opacity: 1;
+    }
+
+    90%,
+    100% {
+        -webkit-transform: perspective(140px) rotateY(180deg);
+        transform: perspective(140px) rotateY(180deg);
+        opacity: 0;
+    }
+}
+
+@keyframes sk-foldCubeAngle {
+
+    0%,
+    10% {
+        -webkit-transform: perspective(140px) rotateX(-180deg);
+        transform: perspective(140px) rotateX(-180deg);
+        opacity: 0;
+    }
+
+    25%,
+    75% {
+        -webkit-transform: perspective(140px) rotateX(0deg);
+        transform: perspective(140px) rotateX(0deg);
+        opacity: 1;
+    }
+
+    90%,
+    100% {
+        -webkit-transform: perspective(140px) rotateY(180deg);
+        transform: perspective(140px) rotateY(180deg);
+        opacity: 0;
+    }
 }
 
 .mainBody {
@@ -126,20 +270,11 @@ body {
     position: absolute;
     top: 50px;
     left: 50px;
-    width: 300px;
+    padding: 5px;
+    width: 240px;
     height: 280px;
 
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-}
-
-.header .divider {
-    display: none;
-    width: 4px;
-    height: 100%;
-    margin-right: 25px;
+    background: RGBA(0, 0, 0, .5);
 }
 
 .header .divider div {
@@ -268,6 +403,51 @@ body {
     padding: 0 10px 0 0;
 }
 
+.about .hobbies-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    width: 100%;
+    color: RGBA(255, 255, 255, .6);
+    list-style: none;
+    padding: 0;
+    margin: 20px auto;
+}
+
+.about .hobbies-item {
+    width: 95px;
+    height: 95px;
+    background: url("../imgs/icons/hobbies.png") no-repeat scroll top left transparent;
+    background-size: 600% auto;
+    background-position: 0 0;
+}
+
+.about .hobbies-item.hobbies-fitness {
+    background-position: 0 0;
+}
+
+.about .hobbies-item.hobbies-gaming {
+    background-position: 20% 0;
+}
+
+.about .hobbies-item.hobbies-music {
+    background-position: 60% 0;
+}
+
+.about .hobbies-item.hobbies-climbing {
+    background-position: 80% 0;
+}
+
+.about .hobbies-item.hobbies-animals {
+    background-position: 40% 0;
+}
+
+.about .hobbies-item.hobbies-travel {
+    background-position: 100% 0;
+}
+
 .about .column.breif {
     width: 70%;
     margin-left: 20%;
@@ -278,7 +458,7 @@ body {
     width: 100%;
 }
 
-.about .hobbies .icon-wrapper {
+.about .details .icon-wrapper {
     height: 70%;
     width: 100%;
 
@@ -289,7 +469,7 @@ body {
 
 }
 
-.about .hobbies {
+.about .details {
     position: absolute;
 
     display: flex;
@@ -299,12 +479,12 @@ body {
     left: 2%;
 }
 
-.about .hobbies .icon-wrapper img {
+.about .details .icon-wrapper img {
     height: 100%;
     width: 100%;
 }
 
-.about .hobbies .speechBubble {
+.about .details .speechBubble {
     position: absolute;
     top: -20%;
     right: -20%;
@@ -312,7 +492,7 @@ body {
     width: 60%;
 }
 
-.about .hobbies .speechBubble .textbox {
+.about .details .speechBubble .textbox {
     height: 60%;
     width: 100%;
     position: absolute;
@@ -784,6 +964,19 @@ body {
     text-align: center;
     font-size: 16px;
     color: #fff;
+}
+
+.recent .rb-item.is-expanded img {
+    opacity: 0;
+}
+
+.recent .rb-item.is-expanded {
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    background: #000;
 }
 
 .footer {

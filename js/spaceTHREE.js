@@ -179,14 +179,21 @@ DAT.Globe = function (container) {
     var freeplay = false;
     var textureChanged = false;
     var earthRotation = 1100;
+    var loadingDone = false;
 
     function render() {
         zoom(curZoomSpeed);
+
+        if (distance < 11000 && !loadingDone) {
+            jq(".wait").hide();
+            loadingDone = true;
+        }
 
         target.x += incr_rotation.x;
         target.y += incr_rotation.y;
         rotation.x += (target.x - rotation.x) * 0.1;
         rotation.y += (target.y - rotation.y) * 0.1;
+
 
         if (distance < 1001 && !freeplay) {
             runAnimation();

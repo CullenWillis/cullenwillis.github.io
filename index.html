@@ -21,7 +21,15 @@
 <body>
     <div class="mainBody">
         <div class="wait">
-            Loading...
+            <div id="loader">
+                <div class="sk-folding-cube">
+                    <div class="sk-cube1 sk-cube"></div>
+                    <div class="sk-cube2 sk-cube"></div>
+                    <div class="sk-cube4 sk-cube"></div>
+                    <div class="sk-cube3 sk-cube"></div>
+                </div>
+                <p class="loading-label">Loading...</p>
+            </div>
         </div>
 
         <nav class="navbar">
@@ -40,25 +48,22 @@
                 <div class="eng">Moved to England - 2018 onwards</div>
             </div>
             <div class="wrapper">
-                <div class="divider">
-                    <div></div>
-                </div>
                 <div class="container">
                     <h1 class="text-heading">Cullen Willis</h1>
                     <div class="text">Software Engineer</div>
                     <ul>
                         <li>
-                            <a href="https://www.linkedin.com/in/cullenwillis/">
+                            <a target="_blank" href="https://www.linkedin.com/in/cullenwillis/">
                                 <img src="imgs/icons/icon-linkedIn.png" alt="LinkedIn" />
                             </a>
                         </li>
                         <li>
-                            <a href="https://github.com/CullenWillis">
+                            <a target="_blank" href="https://github.com/CullenWillis">
                                 <img src="imgs/icons/icon-github.png" alt="github" />
                             </a>
                         </li>
                         <li>
-                            <a>
+                            <a target="_blank" href="">
                                 <img src="imgs/icons/icon-resume.png" href="" alt="resume" />
                             </a>
                         </li>
@@ -70,7 +75,7 @@
         <section class="about">
             <h1 class="text-heading">About Me</h1>
             <div class="container">
-                <div class="column hobbies">
+                <div class="column details">
                     <div class="icon-wrapper">
                         <img src="imgs/resources/astronaut.png" alt="Astronaut">
                     </div>
@@ -78,14 +83,24 @@
                 <div class="column breif">
                     <img src="imgs/resources/speechBubble.png" alt="Speech Bubble">
                     <div class="description">
-                        <span>Hi</span> I'm Cullen, a Software Engineer currently working in Manchester, England. I'm
-                        passionate
-                        about learning new technologies while working constantly to improve my existing skillset. Below
-                        you'll
-                        find details about tools that I'm familiar with, my most recent projects in the last year, as
-                        well
-                        as a
-                        few personal projects.
+                        <div class="desc-text">
+                            Hi.
+                            I'm Cullen, a Software Engineer currently working in Manchester, England.
+                            I'm passionate about learning new technologies while working constantly to improve my
+                            existing skillset. <br /><br />
+                            Outside of work I enjoy going to the gym 5 days a week, learning
+                            about astronomy and working on my current skillset. To relax I prefer to talk to
+                            friends, play games, or listen to music. <br /><br />
+                            Below you'll find details about the tools that I'm familiar with, my most recent projects in
+                            the last year, as well as a few personal projects. </div>
+                        <ul class="hobbies-list">
+                            <li class="hobbies-item hobbies-fitness"></li>
+                            <li class="hobbies-item hobbies-gaming"></li>
+                            <li class="hobbies-item hobbies-music"></li>
+                            <li class="hobbies-item hobbies-climbing"></li>
+                            <li class="hobbies-item hobbies-animals"></li>
+                            <li class="hobbies-item hobbies-travel"></li>
+                        </ul>
                     </div>
                 </div>
 
@@ -229,12 +244,11 @@
         </section>
 
         <section class="recent">
-            <!--
-            <h1 class="text-heading">projects</h1>-->
             <div class="container">
                 <ul id="rb-grid" class="rb-grid">
                     <li class="rb-item around-the-world">
                         <img src="imgs/work/around-the-world.png" alt="4 minutes around the world">
+                        <div class="recent-wrapper"></div>
                     </li>
                     <li class="rb-item">
                         <img src="imgs/work/animals-in-need.png" alt="animals in need">
@@ -264,17 +278,20 @@
         <footer class="footer">
             <div class="wrapper">
                 <div class="social-icons">
-                    <a href="https://www.linkedin.com/in/cullenwillis/"><img src="imgs/icons/icon-linkedIn.png"
-                            alt="LinkedIn" /></a>
-                    <a href="https://github.com/CullenWillis"><img src="imgs/icons/icon-github.png" alt="github" /></a>
-                    <a><img src="imgs/icons/icon-resume.png" href="" alt="resume" /></a>
+                    <a target="_blank" href="https://www.linkedin.com/in/cullenwillis/">
+                        <img src="imgs/icons/icon-linkedIn.png" alt="LinkedIn" />
+                    </a>
+                    <a target="_blank" href="https://github.com/CullenWillis">
+                        <img src="imgs/icons/icon-github.png" alt="github" />
+                    </a>
+                    <a target="_blank" href="">
+                        <img src="imgs/icons/icon-resume.png" alt="resume" />
+                    </a>
                 </div>
                 <div class="copyright">Created by Cullen Willis</div>
             </div>
         </footer>
 
-        <!--<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
-        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>-->
         <script src="https://code.jquery.com/jquery-3.4.1.min.js"
             integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"

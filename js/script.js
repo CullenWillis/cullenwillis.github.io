@@ -2,8 +2,6 @@ $(document).ready(function () {
   jq = $.noConflict(true);
   du_checkParentSize();
 
-  jq(".wait").hide();
-
   runSetup();
 });
 
@@ -57,6 +55,10 @@ function runKeyBinds() {
     if (typeof key != "undefined") {
       scrollPage(jq(key).offset().top, 1000);
     }
+  });
+  jq(".rb-item").click(function () {
+    jq(".rb-item").removeClass("is-expanded");
+    jq(this).addClass("is-expanded");
   });
 }
 
