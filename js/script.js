@@ -38,8 +38,13 @@ function runSetup() {
   headerAnimation();
 }
 
+var overlayActive = false;
 
 function runKeyBinds() {
+  jq(".preview-link").click(function () {
+    window.open(jq(this).attr("href"), jq(this).attr("target"));
+  });
+
   jq(".navbar a").click(function () {
     var key = jq(this).text().toLowerCase();
 
@@ -56,10 +61,16 @@ function runKeyBinds() {
       scrollPage(jq(key).offset().top, 1000);
     }
   });
+
   jq(".rb-item").click(function () {
-    jq(".rb-item").removeClass("is-expanded");
-    jq(this).addClass("is-expanded");
-  });
+      jq(this).removeClass("item-hover");
+    })
+    .mouseover(function () {
+      jq(this).addClass("item-hover");
+    })
+    .mouseout(function () {
+      jq(".rb-item").removeClass("item-hover");
+    });
 }
 
 function scrollEvents() {

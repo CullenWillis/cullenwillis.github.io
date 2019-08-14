@@ -897,28 +897,26 @@ body {
     cursor: pointer;
     position: relative;
     width: 33%;
-    height: auto;
+    height: 100%;
     overflow: hidden;
-    opacity: 0.25;
     margin-bottom: .5%;
 }
 
-.recent .rb-item:hover {
-    opacity: 1;
-
-    animation-name: fadeInOpacity;
-    animation-iteration-count: 1;
-    animation-timing-function: ease-in;
-    animation-duration: .3s;
-}
-
-.recent .rb-item:hover img {
+.recent .rb-item.item-hover .rb-thumbnail {
     transform: scale(1.2);
 
     animation-name: scaleAnimation;
     animation-iteration-count: 1;
     animation-timing-function: ease-in;
     animation-duration: 10s;
+}
+
+.recent .overlay-content .overlay-links {
+    color: #fff;
+}
+
+.overlay-content .overlay-links a {
+    display: inline-block;
 }
 
 @keyframes scaleAnimation {

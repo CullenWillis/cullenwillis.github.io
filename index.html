@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <link href="css/style.css" rel="stylesheet">
+    <link href="css/stylePortfolio.css" rel="stylesheet">
     <link href="css/mobile.css" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
@@ -16,6 +17,8 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Saira&display=swap" rel="stylesheet">
+
+    <script src="js/pageEffect/modernizr.custom.js"></script>
 </head>
 
 <body>
@@ -247,29 +250,85 @@
             <div class="container">
                 <ul id="rb-grid" class="rb-grid">
                     <li class="rb-item around-the-world">
-                        <img src="imgs/work/around-the-world.png" alt="4 minutes around the world">
-                        <div class="recent-wrapper"></div>
+                        <img class="rb-thumbnail" src="imgs/work/around-the-world.png" alt="4 minutes around the world">
+                        <div class="rb-overlay">
+                            <span class="rb-close"></span>
+                            <div class="rb-display">
+                                <img class="overlay-header" src="imgs/work/around-the-world.png"
+                                    alt="4 minutes around the world">
+                                <div class="overlay-content">
+                                    <ul class="languages">
+                                        <li>HTML</li>
+                                        <li>CSS</li>
+                                        <li>JavaScript</li>
+                                        <li>JQuery</li>
+                                        <li>PHP</li>
+                                    </ul>
+                                    <div class="overlay-links">
+                                        <a class="preview-link" target="_blank"
+                                            href="https://github.com/CullenWillis/world_guesser">Github</a>
+                                        <a class="preview-link" target="_blank"
+                                            href="https://www.manchestereveningnews.co.uk/news/uk-news/prove-how-well-you-know-16058852">Preview</a>
+                                    </div>
+                                    <ul class="overlay-description">
+                                        <li class="overlay-description-item overlay-summary">
+                                            <div class="overlay-text">"4 Minutes Around The World" is a
+                                                simple game
+                                                similar to geoguesser where the user will receive a prompt to find a
+                                                country. The user will then need to look throughout the world map to try
+                                                find the prompt. However, they only have 4 minutes to 19 questions.
+                                            </div>
+                                        </li>
+                                        <li class="overlay-description-item">
+                                            <div class="overlay-text text-right">The widget uses javscript and jquery
+                                                which helps
+                                                support and build the MVC pattern. To allow the user to interact with
+                                                the map the
+                                                interactive uses leaflet and a geoJson which has compressed polygon
+                                                coordinates of every country in the world. When combined together it
+                                                allows the user to click on every country to make their guess.
+                                            </div>
+                                            <div class="overlay-preview">
+                                                <img src="imgs/overlay/4matw_preview.png" />
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="overlay-text text-left">Once the core interaction with the
+                                                widget is
+                                                complete. The designer and I worked together to add animations using
+                                                jquery which gives the interactive some flare. All animations were done
+                                                using JQuery.
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </li>
                     <li class="rb-item">
-                        <img src="imgs/work/animals-in-need.png" alt="animals in need">
+                        <img class="rb-thumbnail" src="imgs/work/animals-in-need.png" alt="animals in need">
                     </li>
                     <li class="rb-item">
-                        <img src="imgs/work/isolated-community.png" alt="do you live in an isolated community">
+                        <img class="rb-thumbnail" src="imgs/work/isolated-community.png"
+                            alt="do you live in an isolated community">
                     </li>
                     <li class="rb-item">
-                        <img src="imgs/work/how-well-do-you-know-uk.png" alt="How well do you know the UK?">
+                        <img class="rb-thumbnail" src="imgs/work/how-well-do-you-know-uk.png"
+                            alt="How well do you know the UK?">
                     </li>
                     <li class="rb-item">
-                        <img src="imgs/work/match-prediction.png" alt="match prediction">
+                        <img class="rb-thumbnail" src="imgs/work/match-prediction.png" alt="match prediction">
                     </li>
                     <li class="rb-item">
-                        <img src="imgs/work/here-they-come.png" alt="here they come">
+                        <img class="rb-thumbnail" src="imgs/work/here-they-come.png" alt="here they come">
                     </li>
                     <li class="rb-item">
-                        <img src="imgs/work/age-invariant.png" alt="age-invariant facial recognition">
+                        <img class="rb-thumbnail" src="imgs/work/age-invariant.png"
+                            alt="age-invariant facial recognition">
                     </li>
                     <li class="rb-item">
-                        <img src="imgs/work/chat-application.png" alt="server side chat application">
+                        <img class="rb-thumbnail" src="imgs/work/chat-application.png"
+                            alt="server side chat application">
                     </li>
                 </ul>
             </div>
@@ -297,11 +356,17 @@
         <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
             integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
 
-        <script src="libs/three.min.js"></script>
+        <script src="js/pageEffect/jquery.fittext.js"></script>
+        <script src="js/pageEffect/boxgrid.js"></script>
+        <script>
+            $(function () {
+                Boxgrid.init();
+            });
+        </script>
 
+        <script src="libs/three.min.js"></script>
         <script src="js/spaceTHREE.js"></script>
         <script src="js/script.js"></script>
-
 
 
     </div>
