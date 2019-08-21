@@ -36,6 +36,8 @@ function runSetup() {
 
   scrollEvents();
   headerAnimation();
+
+  jq(".wait").hide();
 }
 
 var overlayActive = false;
@@ -211,7 +213,7 @@ var du_checkParentSize = function () {
   }
 };
 
-startSpaceTHREE();
+//startSpaceTHREE();
 
 function startSpaceTHREE() {
   var container = document.getElementById("spaceTHREE");
