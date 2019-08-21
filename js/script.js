@@ -57,8 +57,8 @@ function runKeyBinds() {
     }
   });
   jq(".rb-item").click(function () {
-    jq(".rb-item").removeClass("is-expanded");
-    jq(this).addClass("is-expanded");
+    var href = jq(this).attr("data-href");
+    window.open(href, "_blank");
   });
 }
 
