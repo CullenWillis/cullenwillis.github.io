@@ -16,11 +16,11 @@
     ""
   ],
   "scripts": {
-    "predeploy": "npm run build",
+    "predeploy": "npm run bot",
     "deploy": "gh-pages -d build",
-    "start": "node ./index.js"
+    "bot": "node ./index.js"
   },
-  "repository": "/discord-time-bot",
+  "repository": "/cullenwillis.github.io",
   "private": true,
   "dependencies": {
     "discord.js": "^11.0.0",
