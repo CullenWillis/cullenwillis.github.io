@@ -1,0 +1,1049 @@
+html,
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.wait {
+    background-color: rgba(0, 0, 0, 1);
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    overflow: hidden;
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    z-index: 6;
+    left: 0;
+    top: 0;
+
+    padding-top: 200px;
+    font-family: "Avenir Book", Helvetica, Arial, sans-serif;
+    font-weight: 700;
+}
+
+#loader {
+    width: 500px;
+    height: 150px;
+    margin: 100px auto;
+}
+
+#loader p {
+    margin: 0;
+}
+
+#loader .loading-label {
+    margin-top: 30px;
+    color: white;
+
+    text-transform: capitalize;
+    text-align: center;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 500;
+    font-size: 2.5em;
+}
+
+#loader .sub-title {
+    margin-top: 5px;
+    color: white;
+
+    text-align: center;
+    font-family: 'Work Sans', sans-serif;
+    font-weight: lighter;
+    font-size: 1.25em;
+}
+
+.sk-folding-cube {
+    margin: auto;
+
+    width: 50px;
+    height: 50px;
+    position: relative;
+    -webkit-transform: rotateZ(45deg);
+    transform: rotateZ(45deg);
+}
+
+.sk-folding-cube .sk-cube {
+    float: left;
+    width: 50%;
+    height: 50%;
+    position: relative;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.sk-folding-cube .sk-cube:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    -webkit-animation: sk-foldCubeAngle 2.4s infinite linear both;
+    animation: sk-foldCubeAngle 2.4s infinite linear both;
+    -webkit-transform-origin: 100% 100%;
+    -ms-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+}
+
+.sk-folding-cube .sk-cube2 {
+    -webkit-transform: scale(1.1) rotateZ(90deg);
+    transform: scale(1.1) rotateZ(90deg);
+}
+
+.sk-folding-cube .sk-cube3 {
+    -webkit-transform: scale(1.1) rotateZ(180deg);
+    transform: scale(1.1) rotateZ(180deg);
+}
+
+.sk-folding-cube .sk-cube4 {
+    -webkit-transform: scale(1.1) rotateZ(270deg);
+    transform: scale(1.1) rotateZ(270deg);
+}
+
+.sk-folding-cube .sk-cube2:before {
+    -webkit-animation-delay: 0.3s;
+    animation-delay: 0.3s;
+}
+
+.sk-folding-cube .sk-cube3:before {
+    -webkit-animation-delay: 0.6s;
+    animation-delay: 0.6s;
+}
+
+.sk-folding-cube .sk-cube4:before {
+    -webkit-animation-delay: 0.9s;
+    animation-delay: 0.9s;
+}
+
+@-webkit-keyframes sk-foldCubeAngle {
+
+    0%,
+    10% {
+        -webkit-transform: perspective(140px) rotateX(-180deg);
+        transform: perspective(140px) rotateX(-180deg);
+        opacity: 0;
+    }
+
+    25%,
+    75% {
+        -webkit-transform: perspective(140px) rotateX(0deg);
+        transform: perspective(140px) rotateX(0deg);
+        opacity: 1;
+    }
+
+    90%,
+    100% {
+        -webkit-transform: perspective(140px) rotateY(180deg);
+        transform: perspective(140px) rotateY(180deg);
+        opacity: 0;
+    }
+}
+
+@keyframes sk-foldCubeAngle {
+
+    0%,
+    10% {
+        -webkit-transform: perspective(140px) rotateX(-180deg);
+        transform: perspective(140px) rotateX(-180deg);
+        opacity: 0;
+    }
+
+    25%,
+    75% {
+        -webkit-transform: perspective(140px) rotateX(0deg);
+        transform: perspective(140px) rotateX(0deg);
+        opacity: 1;
+    }
+
+    90%,
+    100% {
+        -webkit-transform: perspective(140px) rotateY(180deg);
+        transform: perspective(140px) rotateY(180deg);
+        opacity: 0;
+    }
+}
+
+.mainBody {
+    position: relative;
+}
+
+.navbar {
+    display: none;
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    width: auto;
+    height: 25px;
+
+    z-index: 5;
+}
+
+.navbar a {
+    color: RGBA(255, 255, 255, 1);
+
+    margin: 0 25px;
+    padding-bottom: 5px;
+    font-family: "Avenir Book", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
+    cursor: pointer;
+    line-height: 1.7em;
+}
+
+.navbar a.navActive {
+    border-bottom: 1px solid #fff;
+}
+
+.navbar a.navActive:hover {
+    color: RGBA(255, 255, 255, 1);
+}
+
+.navbar a:hover {
+    color: RGBA(255, 255, 255, .5);
+}
+
+.header {
+    width: 100%;
+    height: 1000px;
+    background: #e8e8ea;
+    position: relative;
+}
+
+.header #spaceTHREE {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.header canvas {
+    background: url("../imgs/background/2k_stars.jpg") no-repeat center center;
+
+    background-attachment: fixed;
+}
+
+.header .animation {
+    position: absolute;
+    top: 30%;
+    left: 0;
+    width: 100%;
+    height: 200px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.header .animation div {
+    display: block;
+    opacity: 0;
+    font-family: "Avenir Book", Helvetica, Arial, sans-serif;
+    font-size: 20px;
+    font-weight: 600;
+    width: 300px;
+    margin: 30px 0;
+    background: RGBA(0, 0, 0, .75);
+    color: #fff;
+}
+
+.header .animation .sco {
+    width: 270px;
+    text-align: left;
+    margin-left: 285px;
+    border-left: 2px solid #fff;
+    padding-left: 15px;
+}
+
+.header .animation .eng {
+    width: 180px;
+    text-align: right;
+    margin-right: 370px;
+    border-right: 2px solid #fff;
+    padding-right: 15px;
+    margin-top: 0;
+}
+
+.header .wrapper {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    padding: 5px;
+    width: 240px;
+    height: 280px;
+
+    background: RGBA(0, 0, 0, .5);
+}
+
+.header .divider div {
+    display: none;
+    width: 100%;
+    height: 100%;
+    background: RGBA(255, 255, 255, .75);
+}
+
+.header .container {
+    height: 95%;
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.header .text-heading {
+    color: #fff;
+    text-align: left;
+    font-size: 60px;
+    margin: 0;
+    font-family: "Lato", sans-serif;
+    font-weight: 300;
+}
+
+.header .text {
+    color: #fff;
+    text-align: left;
+    font-size: 24px;
+    font-family: "Avenir Book", Helvetica, Arial, sans-serif;
+}
+
+.header ul {
+    list-style: none;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+
+    margin: 0;
+    padding: 0;
+}
+
+.header li {
+    padding: 0 20px 0 0;
+}
+
+.header img {
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+}
+
+.canvas {
+    width: 100%;
+    height: 100%;
+}
+
+.text-heading {
+    width: 100%;
+    color: black;
+    font-size: 45px;
+    color: #fff;
+    text-shadow: 3px 3px 2px RGBA(0, 0, 0, .25);
+    font-family: "Oswald", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    text-align: center;
+    line-height: 1.05;
+    margin: 0 0 75px 0;
+}
+
+.about {
+    background: url("../imgs/background/2k_stars_white.jpg") no-repeat center center;
+
+    background-attachment: fixed;
+    width: 100%;
+    padding: 75px 0;
+}
+
+.about .container {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.about .column {
+    height: 100%;
+    width: 40%;
+    display: block;
+    position: relative;
+
+}
+
+.about .description {
+    width: 80%;
+    height: 80%;
+    padding: 10%;
+    font-size: 20px;
+    color: #fff;
+    font-family: "Avenir Book", Helvetica, Arial, sans-serif;
+    line-height: 1.2;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.about .description span {
+    float: left;
+    font-family: "Oswald", Helvetica, Arial, sans-serif;
+    font-size: 65px;
+    line-height: 1;
+    padding: 0 15px 5px 0;
+    margin-top: -7px;
+    color: RGBA(255, 255, 255, .6);
+}
+
+.about .description span {
+    font-size: 70px;
+    padding: 0 10px 0 0;
+}
+
+.about .hobbies-list {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    width: 100%;
+    color: RGBA(255, 255, 255, .6);
+    list-style: none;
+    padding: 0;
+    margin: 20px auto;
+}
+
+.about .hobbies-item {
+    width: 95px;
+    height: 95px;
+    background: url("../imgs/icons/hobbies.png") no-repeat scroll top left transparent;
+    background-size: 600% auto;
+    background-position: 0 0;
+}
+
+.about .hobbies-item.hobbies-fitness {
+    background-position: 0 0;
+}
+
+.about .hobbies-item.hobbies-gaming {
+    background-position: 20% 0;
+}
+
+.about .hobbies-item.hobbies-music {
+    background-position: 60% 0;
+}
+
+.about .hobbies-item.hobbies-climbing {
+    background-position: 80% 0;
+}
+
+.about .hobbies-item.hobbies-animals {
+    background-position: 40% 0;
+}
+
+.about .hobbies-item.hobbies-travel {
+    background-position: 100% 0;
+}
+
+.about .column.breif {
+    width: 70%;
+    margin-left: 20%;
+}
+
+.about .breif img {
+    height: 100%;
+    width: 100%;
+}
+
+.about .details .icon-wrapper {
+    height: 70%;
+    width: 100%;
+
+    animation-name: floatingHobbies;
+    animation-duration: 10s;
+    animation-iteration-count: infinite;
+    animation-timing-function: ease-in-out;
+
+}
+
+.about .details {
+    position: absolute;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    left: 2%;
+}
+
+.about .details .icon-wrapper img {
+    height: 100%;
+    width: 100%;
+}
+
+.about .details .speechBubble {
+    position: absolute;
+    top: -20%;
+    right: -20%;
+    height: 50%;
+    width: 60%;
+}
+
+.about .details .speechBubble .textbox {
+    height: 60%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 20px;
+
+    font-family: 'Saira', sans-serif;
+    color: #fff;
+}
+
+@keyframes floatingHobbies {
+    from {
+        transform: translate(0, 0px);
+    }
+
+    50% {
+        transform: translate(0, 15px);
+    }
+
+    to {
+        transform: translate(0, -0px);
+    }
+}
+
+.skills {
+    background: url("../imgs/background/2k_stars_white.jpg") no-repeat center center;
+
+    background-attachment: fixed;
+    width: 100%;
+    padding: 75px 0;
+}
+
+.skills .wrapper {
+    max-width: 1100px;
+    min-height: 666px;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.skills .text {
+    font-family: "Avenir Book", Helvetica, Arial, sans-serif;
+}
+
+.skills .column.bars {
+    display: none;
+    height: 225px;
+    width: 90%;
+    margin: 0 auto 75px;
+}
+
+.skills .bars ul {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    width: 100%;
+    height: 100%;
+    color: RGBA(255, 255, 255, .6);
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.skills .bars li {
+    width: 45%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.skills .icon-wrapper {
+    height: 100%;
+    width: 17%;
+}
+
+.skills .bars img {
+    max-width: 50px;
+    max-height: 55px;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 10px;
+    margin: 0 auto;
+    display: block;
+}
+
+
+.skills .bars .text {
+    width: 100%;
+    text-align: center;
+}
+
+.skills .progress-bar {
+    display: block;
+    width: 70%;
+    height: 25px;
+    border: 1px solid RGBA(255, 255, 255, .5);
+    border-radius: 10px;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.skills .progress-bar .progress-amount {
+    width: 0%;
+    height: 100%;
+    background: RGBA(68, 140, 230, .25);
+}
+
+.skills .text.counter {
+    width: 10%;
+    font-size: 18px;
+    color: #fff;
+}
+
+.skills .column.tools {
+    display: none;
+
+    height: 100%;
+    width: 90%;
+    margin: 0 auto;
+}
+
+.skills li .text {
+    font-size: 15px;
+}
+
+.skills .tools ul {
+    display: flex;
+    justify-content: flex-start;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    width: 100%;
+    color: RGBA(255, 255, 255, .6);
+    list-style: none;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.skills .tools li {
+    width: 15%;
+    margin: 0 auto;
+    max-width: 100px;
+    padding: 20px 30px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.skills .tools img {
+    max-width: 50px;
+    max-height: 55px;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 10px;
+}
+
+.skills .tools .text {
+    width: 100%;
+    text-align: center;
+}
+
+.progress {
+    background: #ececee;
+    width: 100%;
+    height: 100%;
+    padding: 75px 0;
+
+    background: url("../imgs/background/2k_stars.jpg") #000;
+
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.progress .container {
+    max-width: 1000px;
+    min-height: 1299px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.progress .text-heading {
+    color: #fff;
+}
+
+.progress .steps-container {
+    display: none;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+}
+
+.progress .steps-container::before {
+    position: absolute;
+    content: "";
+    left: 49.9%;
+    height: 600em;
+    z-index: 1;
+    width: 1px;
+    background: RGBA(255, 255, 255, .5);
+    display: table;
+    overflow: hidden;
+}
+
+.group {
+    display: none;
+    position: relative;
+    height: 100%;
+    width: 100%;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.clearfix {
+    overflow: auto;
+}
+
+.clearfix::before {
+    content: "";
+    clear: both;
+    display: table;
+}
+
+
+.progress .steps-container h4 {
+    font-family: "Avenir light", Helvetica, Arial, sans-serif;
+    text-align: left;
+    font-weight: bold;
+    font-size: 18px;
+    color: #fff;
+    margin-top: 10px;
+}
+
+.progress .steps-container .desc-box .sub-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #fff;
+}
+
+.progress .steps-container .sub-title,
+.progress .steps-container p {
+    font-family: "Avenir", sans-serif;
+    text-align: left;
+    display: block;
+    margin: 0;
+    color: #cccccc
+}
+
+.progress .steps-container .date {
+    display: inline-block;
+    font-size: 18px;
+    color: #fff;
+    /*#FFD500;*/
+    font-weight: bold;
+
+    font-family: "Avenir", sans-serif;
+    letter-spacing: 1px;
+}
+
+.progress .steps-container .point-circle {
+    display: none;
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    top: 15px;
+    border-radius: 100%;
+
+    background: url("../imgs/icons/sprite.png") no-repeat scroll top left #000;
+    background-size: auto 210%;
+    background-position: 0 0;
+    z-index: 1;
+
+    -webkit-animation: rotating 15s linear infinite;
+    -moz-animation: rotating 15s linear infinite;
+    -ms-animation: rotating 15s linear infinite;
+    -o-animation: rotating 15s linear infinite;
+    animation: rotating 15s linear infinite;
+}
+
+@-webkit-keyframes rotating {
+    from {
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    to {
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes rotating {
+    from {
+        -ms-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+    }
+
+    to {
+        -ms-transform: rotate(360deg);
+        -moz-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+        -o-transform: rotate(360deg);
+        transform: rotate(360deg);
+    }
+}
+
+.progress .steps-container .position-1 .point-circle {
+    background-position: 0 0;
+}
+
+.progress .steps-container .position-2 .point-circle {
+    background-position: -56px 0;
+}
+
+.progress .steps-container .position-3 .point-circle {
+    background-position: -112px 0;
+}
+
+.progress .steps-container .position-4 .point-circle {
+    background-position: -168px 0;
+}
+
+.progress .steps-container .position-5 .point-circle {
+    background-position: 0px -57px;
+}
+
+
+.progress .steps-container .desc-box {
+    display: block;
+    height: 100%;
+    border-radius: 15px;
+    float: right;
+    width: 40%;
+    padding: 15px 25px 15px 25px;
+    position: relative;
+    letter-spacing: 1px;
+}
+
+.progress .steps-container .group-left .desc-box {
+    float: left;
+}
+
+.progress .steps-container .group-left .date {
+    width: 100%;
+    text-align: right;
+}
+
+.progress .steps-container .group-left h4,
+.progress .steps-container .group-left .sub-title,
+.progress .steps-container .group-left p {
+    text-align: right;
+}
+
+.recent {
+    width: 100%;
+    height: 100%;
+    padding: 0 0 75px;
+
+    background: url("../imgs/background/2k_stars.jpg") #000;
+
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+.recent .container {
+    height: 100%;
+    margin: 0 auto;
+}
+
+.recent .text-heading {
+    color: #fff;
+    margin-bottom: 75px;
+}
+
+.recent .rb-grid {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    height: 100%;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between
+}
+
+.recent .rb-item {
+    cursor: pointer;
+    position: relative;
+    width: 33%;
+    height: auto;
+    overflow: hidden;
+    opacity: 0.25;
+    margin-bottom: .5%;
+}
+
+.recent .rb-item:hover {
+    opacity: 1;
+
+    animation-name: fadeInOpacity;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: .3s;
+}
+
+.recent .rb-item:hover img {
+    transform: scale(1.2);
+
+    animation-name: scaleAnimation;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: 10s;
+}
+
+@keyframes scaleAnimation {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.2);
+    }
+}
+
+@keyframes fadeInOpacity {
+    0% {
+        opacity: .5;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+.recent img {
+    height: auto;
+    width: 100%;
+    vertical-align: middle;
+    transform: scale(1);
+}
+
+.recent .heading {
+    font-family: "Oswald", Helvetica, Arial, sans-serif;
+    text-transform: uppercase;
+    width: 100%;
+    text-align: center;
+    font-size: 22px;
+    color: #fff;
+    margin: 20% 0 25px;
+}
+
+.recent .sub-text {
+    font-family: "Avenir Book", Helvetica, Arial, sans-serif;
+    width: 100%;
+    text-align: center;
+    font-size: 16px;
+    color: #fff;
+}
+
+.recent .rb-item.is-expanded img {
+    opacity: 0;
+}
+
+.recent .rb-item.is-expanded {
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    width: 100%;
+    height: 100%;
+    background: #000;
+}
+
+.footer {
+    background: url("../imgs/background/2k_stars.jpg") no-repeat center center;
+
+    background-attachment: fixed;
+
+    width: 100%;
+    padding: 15px 0;
+}
+
+.footer .wrapper {
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 850px;
+
+    position: relative;
+}
+
+.footer .copyright {
+    text-align: center;
+    color: #fff;
+    font-family: "Avenir Book", Helvetica, Arial, sans-serif;
+    font-size: 18px;
+    position: relative;
+}
+
+.footer .social-icons a {
+    display: inline-block;
+    padding: 10px;
+    position: relative;
+    z-index: 2;
+}
+
+.footer .social-icons a:hover {
+    top: -5px;
+    cursor: pointer;
+
+    animation-name: topAnimation;
+    animation-iteration-count: 1;
+    animation-timing-function: ease-in;
+    animation-duration: .075s;
+}
+
+
+@keyframes topAnimation {
+    0% {
+        top: 0;
+    }
+
+    100% {
+        top: -5px;
+    }
+}
+
+.footer .social-icons img {
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.about,
+.skills,
+.progress {
+    display: block;
+}

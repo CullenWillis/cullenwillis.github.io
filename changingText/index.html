@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <style>
+        body {
+            padding: 0;
+            margin: 0;
+            font-family: "helvetica", sans-serif;
+            font-weight: 700;
+            font-size: 52px;
+        }
+
+        #wrapper {
+            display: none;
+            color: red;
+            width: 100%;
+            height: 75px;
+        }
+
+        .shuffle {
+            background: #000;
+            color: #fff;
+            width: 100%;
+            height: 100%;
+            padding: 0;
+            margin: 0 auto;
+            font-size: 55px;
+            text-indent: 10px;
+            line-height: 1.3em;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"
+        integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"
+        integrity="sha256-VazP97ZCwtekAsvgPBSUwPFKdrwD3unUfSGVYrahUqU=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div id="wrapper">
+        <div class="shuffle"></div>
+    </div>
+
+    <script>
+        var tempPlaces = [
+            "fitness", "food", "design", "travel", "social", "movies", "gaming", "music"
+        ];
+        var timerAmount = tempPlaces.length;
+        $(".shuffle").html(tempPlaces[0]);
+
+        setInterval(function () {
+            $("#wrapper").show("slide", {
+                direction: "left"
+            }, 1000);
+        }, 800);
+
+        shuffleTimer = setInterval(function () {
+            var max = tempPlaces.length - 1;
+            timerAmount = timerAmount == 0 ? max : timerAmount - 1;
+
+            shuffleEffect(tempPlaces[timerAmount]);
+        }, 3000);
+
+        function shuffleEffect(text) {
+            var theLetters = "abcdefghijklmnopqrstuvwxyz"; //You can customize what letters it will cycle through
+            var ctnt = text; // Your text goes here
+            var speed = 50; // ms per frame
+            var increment = 3; // frames per step. Must be >2
+            var clen = ctnt.length;
+            var si = 0;
+            var stri = 0;
+            var block = "";
+            var fixed = "";
+            (function rustle(i) {
+                setTimeout(function () {
+                    if (--i) {
+                        rustle(i);
+                    }
+                    nextFrame(i);
+                    si = si + 1;
+                }, speed);
+            })
+            (clen * increment + 1);
+
+            function nextFrame(pos) {
+                for (var i = 0; i < clen - stri; i++) {
+                    var num = Math.floor(theLetters.length * Math.random());
+                    var letter = theLetters.charAt(num);
+                    block = block + letter;
+                }
+                if (si == (increment - 1)) {
+                    stri++;
+                }
+                if (si == increment) {
+                    fixed = fixed + ctnt.charAt(stri - 1);
+                    si = 0;
+                }
+                var tempMsg = fixed + block;
+                $(".shuffle").html(tempMsg);
+                block = "";
+            }
+        }
+    </script>
+</body>
+
+</html>

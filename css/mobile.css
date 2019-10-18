@@ -1,0 +1,199 @@
+.mainBody.du-mobile .navbar {
+    display: none;
+}
+
+.mainBody.du-mobile .header .wrapper {
+    position: absolute;
+    top: 0;
+    left: 15px;
+}
+
+.mainBody.du-mobile .header .divider {
+    display: none;
+}
+
+.mainBody.du-mobile .header .container {
+    height: 80%;
+}
+
+.mainBody.du-mobile .header .text-heading {
+    font-size: 50px;
+}
+
+.mainBody.du-mobile .header img {
+    width: 40px;
+    height: 40px;
+}
+
+.mainBody.du-mobile .header .animation div {
+    font-size: 14px;
+}
+
+.mainBody.du-mobile .header .animation .sco {
+    width: 130px;
+    text-align: left;
+    margin-left: 170px;
+    padding-left: 5px;
+}
+
+.mainBody.du-mobile .header .animation .eng {
+    width: 130px;
+    text-align: left;
+    margin-right: 0;
+    border-left: 2px solid #fff;
+    border-right: 0px solid;
+    padding-left: 5px;
+    padding-right: 0;
+    margin-top: 0;
+    margin-left: 170px;
+}
+
+.mainBody.du-mobile .recent,
+.mainBody.du-mobile .progress,
+.mainBody.du-mobile .skills,
+.mainBody.du-mobile .about {
+    padding: 25px 0;
+}
+
+.mainBody.du-mobile .recent .text-heading,
+.mainBody.du-mobile .progress .text-heading,
+.mainBody.du-mobile .skills .text-heading,
+.mainBody.du-mobile .about .text-heading {
+    margin: 0 0 25px 0;
+}
+
+.mainBody.du-mobile .about .container {
+    width: 100%;
+    flex-direction: column;
+}
+
+.mainBody.du-mobile .about .column {
+    width: 95%;
+    max-width: 325px;
+}
+
+.mainBody.du-mobile .about .description {
+    padding: 10px;
+    font-size: 15px;
+}
+
+.mainBody.du-mobile .about .description span {
+    font-size: 60px;
+}
+
+.mainBody.du-mobile .skills .column.bars {
+    height: 100%;
+    width: 95%;
+    max-width: 325px;
+    margin: 0 auto 25px;
+}
+
+.mainBody.du-mobile .skills .bars ul {
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.mainBody.du-mobile .skills .bars li {
+    width: 100%;
+    margin: 10px auto;
+}
+
+.mainBody.du-mobile .skills .bars .text {
+    font-size: 14px;
+}
+
+.mainBody.du-mobile .skills .icon-wrapper {
+    width: 25%;
+}
+
+.mainBody.du-mobile .skills .progress-bar {
+    width: 60%;
+}
+
+.mainBody.du-mobile .skills .column.tools {
+    height: 100%;
+    width: 95%;
+    max-width: 325px;
+    margin: 0 auto;
+}
+
+.mainBody.du-mobile .skills .column.tools ul {}
+
+.mainBody.du-mobile .skills .column.tools li {
+    padding: 4% 2%;
+    width: 22%;
+    margin: 0 auto;
+}
+
+.mainBody.du-mobile .skills .column.tools .text {
+    font-size: 14px;
+}
+
+
+.mainBody.du-mobile .progress .steps-container::before {
+    display: none;
+}
+
+.mainBody.du-mobile .progress .steps-container .point-circle {}
+
+.mainBody.du-mobile .progress .steps-container .date {
+    margin-top: 75px;
+}
+
+.mainBody.du-mobile .progress .steps-container .desc-box {
+    display: block;
+    float: none;
+    width: 95%;
+    max-width: 325px;
+    padding: 0;
+    margin: 0 auto;
+}
+
+.mainBody.du-mobile .group {
+    margin: 0 auto;
+}
+
+.mainBody.du-mobile .progress .steps-container .group-left .desc-box {
+    float: none;
+}
+
+.mainBody.du-mobile .progress .steps-container .group-left .date {
+    text-align: left;
+}
+
+.mainBody.du-mobile .progress .steps-container .group-left h4,
+.mainBody.du-mobile .progress .steps-container .group-left .sub-title,
+.mainBody.du-mobile .progress .steps-container .group-left p {
+    text-align: left;
+}
+
+.mainBody.du-mobile .progress .steps-container h4,
+.mainBody.du-mobile .progress .steps-container .date {
+    font-size: 16px;
+}
+
+.mainBody.du-mobile .progress .steps-container .sub-title,
+.mainBody.du-mobile .progress .steps-container p {
+    font-size: 14px;
+}
+
+.mainBody.du-mobile .recent ul {}
+
+.mainBody.du-mobile .recent li {
+    width: 100%;
+    opacity: .75;
+}
+
+.mainBody.du-mobile .footer .wrapper {
+    width: 100%;
+    max-width: 325px;
+    margin: 0 auto;
+}
+
+.mainBody.du-mobile .footer .social-icons a {
+    padding: 5px;
+}
+
+.mainBody.du-mobile .footer .copyright {
+    font-size: 14px;
+}
