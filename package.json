@@ -16,8 +16,9 @@
     ""
   ],
   "scripts": {
-    "bot": "node ./index.js",
-    "deploy": "npm run bot"
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build",
+    "start": "node ./index.js"
   },
   "repository": "/discord-time-bot",
   "private": true,
